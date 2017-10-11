@@ -1,0 +1,15 @@
+﻿@{
+    Layout = null;
+}
+@model List<Siyouku.Model.Database.Article>
+<aside class="hidden-xs">
+    <div class="list-group" id="div24hourview">
+        <a href="#" class="list-group-item disabled page-header myitemhead" style="font-weight: 600">【24小时浏览榜】</a>
+        @foreach (var a in Model)
+        {
+            <a target="_blank" href="@Url.Action("Detail",new{ id=a.Id})" class="list-group-item">
+                <p class="list-group-item-text">@a.Title</p>
+            </a>
+        }
+    </div>
+</aside>

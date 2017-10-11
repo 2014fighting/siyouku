@@ -1,0 +1,320 @@
+﻿
+@{
+    ViewBag.Title = "关于本站";
+}
+<script type="text/javascript">
+    $(window).on('scroll',
+                function () {
+                    var scrollTop = $(window).scrollTop();
+                    if (scrollTop >10) {
+                        $('#c').addClass('animated slideInRight');
+                    }
+                    if (scrollTop > 600) {
+                        $('#j').addClass('animated slideInRight');
+                    }
+                });
+</script>
+<div class="container about">
+    <br />
+    <div class="row">
+        <div class="col-md-8 ">
+            <div class="page-header"><h3><span class="glyphicon glyphicon-info-sign"></span>关于本站</h3></div>
+            <div class="animated swing">
+                <span>
+                    本站定位为IT技术博客站，博客内容主要涉及web技术、网站架构、SEO、移动开发、网络爬虫等方面。
+                    全站均由本人开发，基于ASP.NET MVC框架，使用C#进行编写，前端和后台UI框架采用Bootstrap搭建，
+                    数据库为MS SQLServer，服务器为Windows Server 2012 R2阿里云主机，
+                    域名<a href="http://siyouku.cn/article/6789.html">www.siyouku.cn</a>购自阿里万网, 闽ICP备15016058号-2。<a href="http://siyouku.cn/article/6789.html">更多详情</a>
+                </span>
+            </div>
+            <hr />
+            <div class="animated swing">
+                <h2>初衷</h2>
+                <p>写博是一个思考和沉淀的过程。</p>
+                <p>对内：是一个solution record的地方；是自己的知识仓库。</p>
+                <p>对外：是别人了解你的最直接方式；是交流、分享经验的平台。</p>
+            </div>
+            <hr />
+            <h2>联系方式</h2>
+            <div class="animated swing">
+                <p>邮箱：980678637@qq.com </p>
+                <p>QQ：980678637 </p>
+                <p>新浪微博：http://weibo.com</p>
+            </div>
+            <hr />
+            <h2>友链互换</h2>
+            <div class="animated swing">
+                <p> 想要互换友链的朋友可以联系我: 980678637@qq.com </p>
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+            <aside>
+                <div class="panel">
+                    <div class="page-header"><h3><span class="glyphicon glyphicon-user newicon"></span> Just about me</h3></div>
+
+                    <div class="panel-body" style="padding: 10px; font-size: 15px; line-height: 1.5;">
+                        <div>
+                            <div style="width: 150px; text-align: center; font-size: 14px; float: left;">
+                                <img id="wxlook" class="img-responsive" style="margin-right: 5px" width="145" height="145" alt="微信扫一扫" title="打开微信扫一扫" src="~/Content/CommonImg/weixin.jpg">
+                                微信扫一扫
+                            </div>
+                            <div style="text-indent: 2em;">
+                                <p>
+                                    这将是一个程序员的独立博客站，主要用于分享与编程技术相关的内容，
+                                    同时这里也是博主记录工作学习中遇到的问题及其解决方案的地方。
+                                    PS:非著名程序员，IT界的一名初学者。目前在研究angular,react等前端技术,
+                                    生活不止眼前的苟且，还有鼠标与键盘。
+                                    更多信息请点击：<a target="_blank" href="@Url.Action("About")" style="color: #1abc9c">关于本站.</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+
+        </div>
+        <div class="col-md-4">
+            <aside>
+                <div class="panel panel-heading">
+
+                    <div class="panel-body" style="font-size: 15px; line-height: 1.5;">
+                        <img src="~/Content/CommonImg/walk001.gif" />
+                        <img src="~/Content/CommonImg/walk001.gif" />
+                        <img src="~/Content/CommonImg/walk001.gif" />
+                        <img src="~/Content/CommonImg/walk001.gif" />
+                    </div>
+                  
+                </div>
+            </aside>
+
+        </div>
+
+    </div>
+    <div class="row introduction">
+        <div id="c" class="panel panel-heading hidden-xs">
+            <div class="page-header">
+                <h3>C# Code about me</h3>
+            </div>
+            <pre>
+            <code>
+                       public ActionResult Hello()
+                       {
+                           var aboutMe = new AboutMe()
+                           {
+                               Name ="余文清",
+                               Age=24,
+                               Email ="980678637@qq.com",
+                               Gender ="男",
+                               Hobbies =new[] { "Comic", "Chinese Calligraphy", "DIY", "NBA", "Photography", "music" },
+                               Skills = new[] { "HTML5", "CSS3", "JavaScript", "angular","C#", "sql", "python" },
+                               Social = new Social()
+                               {
+                                   Github = "https://github.com/2014fighting",
+                                   Weibo = "http://weibo.com/234228673",
+                                   Wechat="wenqing_vicky",
+                                   Blog = "http://siyouku.cn",
+                                   Zhihu = "https://www.zhihu.com/people/ge-bi-lao-wang-12-19"
+                               }
+                           };
+                       
+                           return Json(aboutMe);
+                       }
+           </code>
+         </pre>
+        </div>
+        <br />
+
+        <div id="j" class="panel panel-heading hidden-xs">
+            <div class="page-header">
+                <h3>JavaScript Code about me</h3>
+            </div>
+            <pre>
+            <code>
+                      {
+	                      "name": "余文清",
+                              "age"=24,
+	                      "gender": "男",
+	                      "email": "980678637@qq.com",
+	                      "skills": ["HTML5", "CSS3", "JavaScript", "angular","C#", "sql", "python"],
+	                      "hobbies": ["Comic", "Chinese Calligraphy", "DIY", "NBA", "Photography", "music"],
+	                      "social": [
+	                      	   {
+            	                   Github = "https://github.com/2014fighting",
+                                   Weibo = "http://weibo.com/234228673",
+                                   Wechat="wenqing_vicky",
+                                   Blog = "http://siyouku.cn",
+                                   Zhihu = "https://www.zhihu.com/people/ge-bi-lao-wang-12-19"
+	                      	   }
+	                      ]
+                      }
+           </code>
+        </pre>
+        </div>
+    </div>
+</div>
+
+@*<div class="tagBall">
+    <a class="tag" href="#">WAXES</a>
+    <a class="tag" href="#">3D标签云</a>
+    <a class="tag" href="#">WAXES</a>
+    <a class="tag" href="#">3D标签云</a>
+    <a class="tag" href="#">WAXES</a>
+    <a class="tag" href="#">3D标签云</a>
+    <a class="tag" href="#">WAXES</a>
+    <a class="tag" href="#">3D标签云</a>
+    <a class="tag" href="#">WAXES</a>
+    <a class="tag" href="#">3D标签云</a>
+    <a class="tag" href="#">WAXES</a>
+    <a class="tag" href="#">3D标签云</a>
+    <a class="tag" href="#">WAXES</a>
+    <a class="tag" href="#">3D标签云</a>
+    <a class="tag" href="#">WAXES</a>
+    <a class="tag" href="#">3D标签云</a>
+    <a class="tag" href="#">WAXES</a>
+    <a class="tag" href="#">3D标签云</a>
+    <a class="tag" href="#">WAXES</a>
+    <a class="tag" href="#">3D标签云</a>
+    <a class="tag" href="#">WAXES</a>
+    <a class="tag" href="#">3D标签云</a>
+    <a class="tag" href="#">WAXES</a>
+    <a class="tag" href="#">3D标签云</a>
+    <a class="tag" href="#">3D标签云</a>
+    <a class="tag" href="#">WAXES</a>
+    <a class="tag" href="#">3D标签云</a>
+    <a class="tag" href="#">WAXES</a>
+    <a class="tag" href="#">3D标签云</a>
+    <a class="tag" href="#">WAXES</a>
+    <a class="tag" href="#">3D标签云</a>
+    <a class="tag" href="#">3D标签云</a>
+    <a class="tag" href="#">WAXES</a>
+    <a class="tag" href="#">3D标签云</a>
+</div>
+<script>
+		var tagEle = "querySelectorAll" in document ? document.querySelectorAll(".tag") : getClass("tag"),
+			paper = "querySelectorAll" in document ? document.querySelector(".tagBall") : getClass("tagBall")[0];
+			RADIUS =150,
+			fallLength = 800,
+			tags=[],
+			angleX = Math.PI/500,
+		    angleY = Math.PI/500,
+			CX = paper.offsetWidth/2,
+			CY = paper.offsetHeight/2,
+			EX = paper.offsetLeft + document.body.scrollLeft + document.documentElement.scrollLeft,
+			EY = paper.offsetTop + document.body.scrollTop + document.documentElement.scrollTop;
+
+		function getClass(className){
+			var ele = document.getElementsByTagName("*");
+			var classEle = [];
+			for(var i=0;i<ele.length;i++){
+				var cn = ele[i].className;
+				if(cn === className){
+					classEle.push(ele[i]);
+				}
+			}
+			return classEle;
+		}
+
+		function innit(){
+			for(var i=0;i<tagEle.length;i++){
+				var a , b;
+				var k = -1+(2*(i+1)-1)/tagEle.length;
+				var a = Math.acos(k);
+				var b = a*Math.sqrt(tagEle.length*Math.PI);
+				var x = RADIUS * Math.sin(a) * Math.cos(b);
+				var y = RADIUS * Math.sin(a) * Math.sin(b);
+				var z = RADIUS * Math.cos(a);
+				var t = new tag(tagEle[i] , x , y , z);
+				tagEle[i].style.color = "rgb("+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+")";
+				tags.push(t);
+				t.move();
+			}
+		}
+
+		Array.prototype.forEach = function(callback){
+			for(var i=0;i<this.length;i++){
+				callback.call(this[i]);
+			}
+		}
+
+		function animate() {
+		    setInterval(function() {
+		            rotateX();
+		            rotateY();
+		            tags.forEach(function() {
+		                this.move();
+		            });
+		        },
+		        17);
+		}
+
+		if ("addEventListener" in window) {
+		     
+		    paper.addEventListener("mousemove", function (event) {
+		    
+				var x = event.clientX - EX - CX;
+				var y = event.clientY - EY - CY;
+				console.info(x);
+				console.info(y);
+				angleY = x*0.0001;
+				angleX = y*0.0001;
+			});
+		}
+		else {
+		    paper.attachEvent("onmousemove", function (event) {
+				var x = event.clientX - EX - CX;
+				var y = event.clientY - EY - CY;
+				angleY = x*0.0001;
+				angleX = y*0.0001;
+			});
+		}
+
+		function rotateX(){
+			var cos = Math.cos(angleX);
+			var sin = Math.sin(angleX);
+		    tags.forEach(function() {
+		        var y1 = this.y * cos - this.z * sin;
+		        var z1 = this.z * cos + this.y * sin;
+		        this.y = y1;
+		        this.z = z1;
+		    });
+
+		}
+
+		function rotateY(){
+			var cos = Math.cos(angleY);
+			var sin = Math.sin(angleY);
+		    tags.forEach(function() {
+		        var x1 = this.x * cos - this.z * sin;
+		        var z1 = this.z * cos + this.x * sin;
+		        this.x = x1;
+		        this.z = z1;
+		    });
+		}
+
+		var tag = function(ele , x , y , z){
+			this.ele = ele;
+			this.x = x;
+			this.y = y;
+			this.z = z;
+		}
+
+		tag.prototype = {
+			move:function(){
+				var scale = fallLength/(fallLength-this.z);
+				var alpha = (this.z+RADIUS)/(2*RADIUS);
+				this.ele.style.fontSize = 12 * scale + "px";
+				this.ele.style.opacity = alpha+0.5;
+				this.ele.style.filter = "alpha(opacity = "+(alpha+0.5)*100+")";
+				this.ele.style.zIndex = parseInt(scale*100);
+				this.ele.style.left = this.x + CX - this.ele.offsetWidth/2 +"px";
+				this.ele.style.top = this.y + CY - this.ele.offsetHeight/2 +"px";
+			}
+		}
+		innit();
+		animate();
+</script>*@
+

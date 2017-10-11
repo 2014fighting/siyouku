@@ -1,0 +1,11 @@
+F:\vs2015Projects\Siyouku.Repositorys\bin\Release\Siyouku.Repositorys.dll
+F:\vs2015Projects\Siyouku.Repositorys\bin\Release\Siyouku.Repositorys.pdb
+F:\vs2015Projects\Siyouku.Repositorys\bin\Release\EntityFramework.dll
+F:\vs2015Projects\Siyouku.Repositorys\bin\Release\EntityFramework.SqlServer.dll
+F:\vs2015Projects\Siyouku.Repositorys\bin\Release\Siyouku.Model.dll
+F:\vs2015Projects\Siyouku.Repositorys\bin\Release\Siyouku.Model.pdb
+F:\vs2015Projects\Siyouku.Repositorys\bin\Release\EntityFramework.xml
+F:\vs2015Projects\Siyouku.Repositorys\bin\Release\EntityFramework.SqlServer.xml
+F:\vs2015Projects\Siyouku.Repositorys\obj\Release\Siyouku.Repositorys.csprojResolveAssemblyReference.cache
+F:\vs2015Projects\Siyouku.Repositorys\obj\Release\Siyouku.Repositorys.dll
+F:\vs2015Projects\Siyouku.Repositorys\obj\Release\Siyouku.Repositorys.pdb

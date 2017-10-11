@@ -1,0 +1,123 @@
+﻿
+@{
+    ViewBag.Title = "WeTalk";
+}
+<!--引用SignalR库. -->
+<script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
+
+<!--引用自动生成的SignalR 集线器(Hub)脚本.在运行的时候在浏览器的Source下可看到 -->
+<script src="~/signalr/hubs"></script>
+<style type="text/css">
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    #box {
+        width: 1000px;
+        margin: 50px auto;
+        border: 1px solid #000000;
+        position: relative;
+    }
+
+    #main {
+
+        width: 100%;
+        height: 605px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    p {
+        position: absolute;
+        left: 1000px;
+        width: 200px;
+        top: 0;
+    }
+
+    #bottom {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+
+    #txt {
+        width: 300px;
+        height: 50px;
+    }
+
+    #btn {
+        width: 98px;
+        height: 50px;
+    }
+</style>
+<div id="box" class="container">
+    <div class="row">
+        <div id="main">
+
+        </div>
+        <div id="bottom">
+            <input type="text" id="txt" placeholder="请输入内容" />
+            <input type="button" class="btn btn-primary" id="btn" value="点我发射" />
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    // 引用自动生成的集线器代理
+    var chat = $.connection.serverHub;
+    // 定义服务器端调用的客户端sendMessage来显示新消息
+
+    chat.client.sendMessage = function (name, message) {
+       console.info(message);
+        auto(message);
+    };
+
+    // 开始连接服务器
+    $.connection.hub.start().done(function () {
+        $('#btn').click(function () {
+            // 调用服务器端集线器的Send方法
+            chat.server.send($('#txt').val());
+            // 清空输入框信息并获取焦点
+            $('#txt').val('').focus();
+        });
+    });
+
+    // 为显示的消息进行Html编码
+    function htmlEncode(value) {
+        var encodedValue = $('<div />').text(value).html();
+        return encodedValue;
+    }
+
+
+        var pageH=parseInt($("#main").height());
+        var colorArr = ["#cfaf12", "#12af01", "#981234", "#adefsa", "#db6be4", "#f5264c", "#d34a74"];
+
+       // $("#btn").bind("click",auto);
+        document.onkeydown=function(e){
+            if(e.keyCode == 13){
+                // 调用服务器端集线器的Send方法
+                chat.server.send($('#txt').val());
+                // 清空输入框信息并获取焦点
+                $('#txt').val('').focus();
+            }
+        };
+        function auto(message) {
+
+            $("#main").append("<p>" + message + "</p>");
+            //$("#txt").val("");
+            var _top=parseInt(pageH*(Math.random()));
+            var num=parseInt(colorArr.length*(Math.random()));
+            $("p:last-child").css({"top":_top,"color":colorArr[num],"font-size":"20px"});
+            $("p:last-child").animate({"left":"-200px"},10000);
+            $("p:last-child").stop().animate({"left":"-300px"},10000,"linear",function(){
+                $(this).remove();
+            });
+            //console.log($value);
+        };
+
+
+</script>

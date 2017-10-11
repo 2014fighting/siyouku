@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="baidu-site-verification" content="CawYskJE9c" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    <meta name="description" content="@ViewBag.Description" />
+
+    <link rel="Shortcut Icon" href="http://img.siyouku.cn/siyouku100.png" type="image/x-icon">
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/common.css" rel="stylesheet" />
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Content/layer-v3.0.1/layer/layer.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/Common.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+        $(function () {
+            var title = '@ViewBag.Title';
+
+            if (title == "小程序大全") {
+
+                $("#searchform").attr("action", "/Applet/");
+                $("#KeyWord").attr("placeholder", "搜索小程序");
+
+            }
+        });
+
+    </script>
+</head>
+<body>
+    <!-- JiaThis Button BEGIN -->
+    <script type="text/javascript">
+        var jiathis_config = { data_track_clickback: 'true' };
+    </script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;btn=r8.gif&amp;uid=2142045" charset="utf-8"></script>
+    <!-- JiaThis Button END -->
+    <!--导航条-->
+
+    <nav class="navbar navbar-default navbar-fixed-top cust_navbar" role="navigation">
+        <div class="container  container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                    <img src="~/Content/CommonImg/私.png" />有库
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="@Url.Action("Index", "Home")">主页</a><span class="xiahua"></span></li>
+                    @*<li><a href="@Url.Action("EnglishStudy", "Wenqing")">每日英语</a><span class="xiahua"></span></li>*@
+
+                    <li><a href="@Url.Action("About", "Home")">关于本站</a><span class="xiahua"></span></li>
+                    <li><a href="@Url.Action("TagList", "Home")">热门标签</a><span class="xiahua"></span></li>
+                    <li><a href="@Url.Action("Index", "Applet")">小程序大全</a><span class="xiahua"></span></li>
+                    @*<li><a href="@Url.Action("WeTalk", "Wenqing")">大家聊</a><span class="xiahua"></span></li>*@
+                    <li><a href="@Url.Action("Index", "ImgService")">我的图库</a><span class="xiahua"></span></li>
+                    <li><a href="@Url.Action("Animation", "Wenqing")">Animation</a><span class="xiahua"></span></li>
+
+                    @*<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">文章来源<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">博客园</a></li>
+                                <li><a href="#">百度百家</a></li>
+                                <li><a href="#">简书</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">36氪</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">今日头条</a></li>
+                            </ul><span class="xiahua"></span>
+                        </li>*@
+                </ul>
+                <form id="searchform" class="navbar-form navbar-left" action="@Url.Action("Index", "Home")" role="search">
+                    <div class="form-group">
+                        <input id="KeyWord" type="text" name="KeyWord" class="form-control" placeholder="文章搜索">
+                    </div>
+                    <button type="submit" class="btn btn-danger">搜文章</button>
+                    @*<button type="button" class="btn btn-danger"  onclick="CrawlerArt();">爬取文章入库</button>*@
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("Messages", "Home")"><span class="glyphicon glyphicon-pencil"></span>留言墙</a><span class="xiahua"></span></li>
+                    <li class="login_in"><a href="/Manage"><span class="glyphicon glyphicon-log-in"></span>登入</a></li>
+                    <li class="login_out"><a href="#"><span class="glyphicon glyphicon-user"></span>注册</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    @*<div class="container body-content">*@
+    @RenderBody()
+    @*</div>*@
+    <footer id="sky-footer" class="sky-footer">
+        <div id="footercon" class="container">
+            &copy; @DateTime.Now.Year <a href="@Url.Action("Index", "Home")">siyouku</a>&nbsp; | &nbsp;联系我 :
+            <a href="mailto:980678637@qq.com">980678637@qq.com</a>&nbsp; | &nbsp;All Rights Reserved.&nbsp; | &nbsp;闽ICP备15016058号-2 &nbsp;
+
+            <script type="text/javascript">
+            var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cspan id='cnzz_stat_icon_1262011220'%3E%3C/span%3E%3Cscript src='" +
+                cnzz_protocol +
+                "s13.cnzz.com/z_stat.php%3Fid%3D1262011220%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+            </script><br />
+            <p style="font-family: fantasy; color: #c0c0c0; font-size: 13px">
+                个人私有库提供个人喜爱的文章进行阅读和收藏,部分来自网友转载,也有部分是站长写爬虫采集而来,同时在各自文章页面提供内容分享。若您发现本站的文章侵犯到您的权益,请联系我们确认之后立即删除。网站还在搭建中....你可以在留言板中提出您的建议，蟹蟹。
+            </p>
+        </div>
+
+    </footer>
+    <div class="gotop">
+        <img src="~/Content/CommonImg/goTop.png" style="width: 50px; height: 50px" />
+    </div>
+</body>
+</html>

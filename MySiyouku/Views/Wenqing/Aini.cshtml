@@ -1,0 +1,620 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>爱你</title>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <style type="text/css">
+        body {
+            margin:0;
+            padding:0px;
+            background-color:#2C3437;
+        }
+        .content {
+            display:inline-block;
+            width:350px;
+            height:400px;
+            padding-top:70px;
+            margin-right:5px;
+            margin-left:5px;
+        }
+        div>div>div {
+            display:block;
+            height:20px;
+        }
+        div>div>div>div {
+            width:16px;
+            height:16px;
+            background-color:#ff00d8;
+            display:inline-block;
+            float:left;
+            margin:2px;
+        }
+        div>div.content1>div>div.fl {
+            background-color:#ff0033;
+        }
+        div>div.content2>div>div.fl {
+            background-color:#006699;
+        }
+        div>div.content3>div>div.fl {
+            background-color:#ffff33;
+        }
+
+    </style>
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            animate();
+            $("#audio_btn").click(function () {
+                var music = document.getElementById("music");
+                if (music.paused) {
+                    music.play();
+                    $("#audio_btn").html("点击关闭背景音乐");
+                } else {
+                    music.pause();
+                    $("#audio_btn").html("点击播放背景音乐");
+                }
+            });
+        });
+
+        function animate() {
+            $('div>div>div>div').each(function () {
+                $(this).css({
+                    position: 'relative',
+                    top: '-400px',
+                    opacity: 0
+                });
+                var wait = Math.floor((Math.random() * 3000) + 1);
+                $(this).delay(wait).animate({
+                    top: '0px',
+                    opacity: 1
+                }, 2000, function () {
+                    $(this).delay(wait).animate({
+                        top: '50px',
+                        opacity: 0
+                    }, 1000, function () {
+                        $(this).delay(wait).animate({
+                            top: '0px',
+                            opacity: 1
+                        }, 500);
+
+
+                    });
+                });
+            });
+            $('span').each(function () {
+                $(this).css({
+                    position: 'relative',
+                    top: '-200px',
+                    opacity: 0
+                });
+                var wait = Math.floor((Math.random() * 3000) + 1);
+                $(this).delay(wait).animate({
+                    top: '0px',
+                    opacity: 1
+                }, 2000, function () {
+                    $(this).delay(wait).animate({
+                        top: '50px',
+                        opacity: 0
+                    }, 1000, function () {
+                        $(this).delay(wait).animate({
+                            top: '0px',
+                            opacity: 1
+                        }, 500);
+                    });
+                });
+            });
+        }
+
+        setTimeout(function () {
+            $("a").css({
+                position: 'relative',
+                left: '-400px',
+                opacity: 0
+            });
+            $("a").animate({
+                left: '0px',
+                opacity: 1
+            }, 2000);
+        }, 5000)
+        $("#bofang").click(function () {
+            animate();
+        });
+
+
+
+ 
+    </script>
+</head>
+<body>
+    <div style="width: 1100px; margin: auto;">
+        <p style="font-size: 40px; color: #f75fe0;text-align: center;">
+            <span>老</span><span>婆</span>
+        </p>
+        <p style="font-size: 22px; color: #f75fe0;text-align: center;">
+            <span>如</span>
+            <span>果</span>
+            <span>每</span>
+            <span>个</span>
+            <span>人</span>
+            <span>一</span>
+            <span>生</span>
+            <span>只</span>
+            <span>会</span>
+            <span>遇</span>
+            <span>到</span>
+            <span>一</span>
+            <span>颗</span>
+            <span>流</span>
+            <span>星</span>
+            <span>，</span>
+            <span>那</span>
+            <span>么</span>
+            <span>和</span>
+            <span>你</span>
+            <span>在</span>
+            <span>一</span>
+            <span>起</span>
+            <span>就</span>
+            <span>是</span>
+            <span>我</span>
+            <span>惟</span>
+            <span>一</span>
+            <span>的</span>
+            <span>愿</span>
+            <span>望</span>
+            <span>！</span>
+        </p>
+        <div class="content content1">
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl" style="margin-left:262px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl" style="margin-left:262px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl" style="margin-left:262px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl" style="margin-left:262px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl" style="margin-left:262px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl" style="margin-left:262px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+        </div>
+
+        <div class="content content2">
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl" style="margin-left:262px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl" style="margin-left:262px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl" style="margin-left:262px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl" style="margin-left:262px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl" style="margin-left:262px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl" style="margin-left:262px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+        </div>
+
+
+
+        <div class="content content3">
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl" style="margin-left: 222px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl" style="margin-left: 222px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl" style="margin-left: 222px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl" style="margin-left: 222px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl" style="margin-left: 222px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl" style="margin-left: 222px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl" style="margin-left: 222px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl" style="margin-left: 222px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl" style="margin-left: 222px;"></div>
+                <div class="fl"></div>
+            </div>
+
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl" style="margin-left: 222px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl" style="margin-left: 222px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl" style="margin-left: 222px;"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+            <div style="margin-left:20px;">
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+                <div class="fl"></div>
+            </div>
+        </div>
+
+        <a id="bofang" style="background: #f75fe0; color:#fff; border-radius:5px;width:140px;height:40px;text-align: center;display:inline-block;margin-left:400px; line-height: 40px; cursor: pointer;opacity: 0;">
+            点击再看一次
+        </a>
+
+        <a id="audio_btn" style="background: #f75fe0; color:#fff; border-radius:5px;width:140px;height:40px;text-align: center;display:inline-block;line-height: 40px; cursor: pointer;opacity: 0;">
+            点击关闭背景音乐
+        </a>
+
+    </div>
+    <audio id="music" autoplay="autoplay" loop="loop" preload="auto" src="http://www.xyptz.cn/aini.mp3"></audio>
+</body>
+</html>

@@ -1,0 +1,155 @@
+﻿
+@{
+    ViewBag.Title = "ArticleAdd";
+}
+ 
+<script src="~/Content/UEditor/ueditor.config.js"></script>
+<script src="~/Content/UEditor/ueditor.all.js"></script>
+  
+<script src="~/Scripts/bootstrap-select.js"></script>
+<link href="~/Content/bootstrap-select.css" rel="stylesheet" />
+<script type="text/javascript">
+
+    //var editor = new UE.ui.Editor();
+    //editor.render("Content");
+    //1.2.4以后可以使用一下代码实例化编辑器
+    //
+
+    var editor = UE.getEditor('Content');
+    var editortemp = UE.getEditor('temparea');
+
+    editortemp.ready(function () {
+        this.hide();//隐藏编辑器
+        this.addListener('beforeInsertImage',
+            function (t, arg) {
+                $("#Img").val(arg[0].src);
+                return;
+                //alert('这是图片地址：' + arg[0].src);
+            });
+
+        this.addListener('afterUpfile', function (t, arg) {
+            alert('这是文件地址：' + arg[0].url);
+        });
+    });
+
+    //弹出图片上传的对话框
+    function upImage() {
+        var myImage = editortemp.getDialog("insertimage");
+        myImage.open();
+    }
+    //弹出文件上传的对话框
+    function upFiles() {
+        var myFiles = editortemp.getDialog("attachment");
+        myFiles.open();
+    }
+ 
+    function sumbit() {
+        var tags = $('.selectpicker').val();
+        if (!$('#Title').val()) {
+            layer.msg("文章标题必填！"); return;
+        }
+        if (!tags) {
+            layer.msg("标签必须选择！");
+            return;
+        }
+        if (!$('#Summary').val()) {
+            layer.msg("文章描述必填！"); return;
+        }
+        if (!$('#CategoryId').val()) {
+            layer.msg("文章分类必填！"); return;
+        }
+        if (!editor.getContent()) {
+            layer.msg("文章内容必填！"); return;
+        }
+        wenqing.add('comform', '@Url.Action("ArticleAdd")', '@Url.Action("ArticleAdd")', '@Url.Action("Index")');
+    }
+    $(function () {
+       
+        $.ajax({
+            url: '@Url.Action("GetListjson")',
+            dataType: "json",
+            success: function (data) {
+                data = data.items;
+                for (var i = 0; i < data.length; i++) {
+                    $('.selectpicker').append("<option value=" + data[i].id + ">" + data[i].name + "</option>");
+                }
+                $('.selectpicker').selectpicker({
+                    noneSelectedText: "==请选择标签=="
+                });
+            }
+        });
+
+    });
+</script>
+@using Siyouku.Model.Database
+@model MySiyouku.Areas.Manage.Models.ArticleDetail
+    @*@using (Html.BeginForm("ArticleAdd","Article", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" , role = "form" }))
+    {*@
+<form class="form-horizontal comform" id="comform">
+    
+   
+    <div class="form-group">
+        @Html.LabelFor(i => i.Title, new {@class = "col-sm-2 control-label"})
+        <div class="col-sm-8">
+            @Html.TextBoxFor(i => i.Title, new {@class = "form-control", required = "required", placeholder = "标题"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(i => i.Summary, new {@class = "col-sm-2 control-label"})
+        <div class="col-sm-8">
+            @Html.TextBoxFor(i => i.Summary, new {@class = "form-control", placeholder = "描述"})
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(i => i.CategoryId, new {@class = "col-sm-2 control-label"})
+        <div class="col-sm-8">
+            @Html.TextBoxFor(i => i.CategoryId, new {@class = "form-control", placeholder = "文章分类"})
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(i => i.Tags, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            <select class="selectpicker form-control" id="Tags" name="Tags" data-live-search="true" multiple="multiple">
+            </select>
+        </div>
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(i => i.Img, new {@class = "col-sm-2 control-label"})
+        <div class="col-sm-8">
+            <textarea id="temparea"></textarea>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" onclick="upImage();" type="button">上传缩略图</button>
+                </span>
+                @Html.TextBoxFor(i => i.Img, new { @class = "form-control", placeholder = "请上传缩略图" })
+            </div>
+            </div>
+
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(i => i.Content, new {@class = "col-sm-2 control-label"})
+        <div class="col-sm-8">
+            @Html.TextAreaFor(i => i.Content, new {placeholder = "内容"})
+        </div>
+    </div>
+
+   
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-8">
+            <button type="button" class="btn btn-primary" onclick="sumbit();">提交</button>
+
+            <button type="button" class="btn btn-primary" onclick="wenqing.tabclose('@Url.Action("ArticleAdd")', '@Url.Action("Index")')">返回</button>        </div>
+        
+    </div>
+ 
+</form>
+
+
+
+
+

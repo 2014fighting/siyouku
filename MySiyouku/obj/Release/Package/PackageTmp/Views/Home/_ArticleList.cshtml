@@ -1,0 +1,65 @@
+﻿@using Webdiyer.WebControls.Mvc
+@model Webdiyer.WebControls.Mvc.IPagedList<MySiyouku.Models.ArticleListDto>
+@foreach (var article in Model)
+{
+    <div class="article-div">
+        <div class="row item-article">
+
+            <p class="col-sm-3 article-img animated flipInX ">
+                <a href="@Url.RouteUrl("article",new {id=article.Id})" target="_blank">
+                    <img src="@article.Img" class="img-responsive img-thumbnail" alt="@article.Title">
+                </a>
+                <span class="pc-mark">@article.CategoryId</span>
+            </p>
+            <div class="col-sm-9 item-other animated flipInX ">
+                <h3>
+                    @*<a href="@Url.Action("Detail",new {id=article.Id})" target="_blank">@article.Title</a>*@
+                    <a href="@Url.RouteUrl("article",new {id=article.Id})" target="_blank">@article.Title</a>
+                </h3>
+                <p class="feeds-item-text1">@article.Summary</p>
+                <div class="other-share hidden-xs">
+                    <a href="@Url.Action("Index")" class="feeds-item-author" target="_blank">@article.CollectUser</a>
+                    <i class="public-v"></i>
+                    <span class="tm">@article.CollectTime</span>
+                    <span class="count">阅读 &nbsp;<span class="badge">@article.Pviews</span></span>
+                    &nbsp;&nbsp;
+                    <a href="javascript:;" class="share-article">
+                     @if (article.Tags.Any())
+                     {
+                        <div class="pull-right">
+                            <span class="glyphicon glyphicon-tags pull-left"></span>
+                            <ul>
+                                @foreach (var tag in article.Tags)
+                                {
+                                    <li class="btn btn-white btn-xs" ><span class="label label-default">@tag.CatName</span></li>
+                                }
+                            </ul>
+                        </div>
+                     }
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+}
+
+<div class="text-center">
+    @Ajax.Pager(Model, new PagerOptions
+{
+    PrevPageText = "<<",
+    NextPageText = ">>",
+    PageIndexParameterName = "Page",
+    ShowFirstLast = false,
+    ContainerTagName = "ul",
+    CssClass = "pagination",
+    CurrentPagerItemTemplate = "<li class=\"active\"><a href=\"#\" class=\"on\">{0}</a></li>",
+    DisabledPagerItemTemplate = "<li class=\"disabled\"><a >{0}</a></li>",
+    PagerItemTemplate = "<li>{0}</li>"
+}, new MvcAjaxOptions
+{
+    UpdateTargetId = "articles"
+})
+</div>

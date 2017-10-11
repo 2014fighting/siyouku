@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "个人私有库";
+    ViewBag.Keywords = "个人私有库,个人博客,私有库,网络日志,个人库,个人站,优秀博客";
+    ViewBag.Description = "个人私有库提供个人喜爱的文章进行阅读和收藏,部分来自网友转载,也有部分是站长写爬虫采集而来,同时在各自文章页面提供内容分享。";
+}
+@using Webdiyer.WebControls.Mvc;
+@model IPagedList<MySiyouku.Models.ArticleListDto>
+
+<script type="text/javascript">
+    window.onload = function () {
+        var dazi = document.getElementById('dazi');
+        //var msg = "目前本站内容都是写爬虫采集而来，非原创，网站还在搭建中.....，不过可以在留言板给出您的建议 或意见 ，蟹蟹、<br/>—生活不止眼前的苟且,还有鼠标和键盘-_-";
+
+        var msg = "我相信有一份好奇，加上一点点努力，我们一定能从“一无所知”走向“知道一点点”，然后是“知道一些”，这样慢慢地积累，说不定有一天突然发现，原来我也可以站着巨人的肩膀上，原来我真的已经站着巨人的肩膀上。到那时，我们一定已经开始新的旅程了，那将是真正具备创造性的工作，到那一天，请不要忘记，一切都是从好奇开始。";
+        var len = msg.length;
+        var seq = 0;
+        var speed = 200;
+        var timeId = null;
+        function daziStart() {
+            dazi.innerHTML = msg.substring(0, seq) + '_';
+            if (seq <= len) {
+                seq++;
+                timeId = setTimeout(daziStart, speed);
+            } else {
+                setTimeout(function () {
+                    dazi.innerHTML = msg.substring(0, seq);
+                }, 800);
+            }
+        }
+        daziStart();
+    }
+
+    $(function () {
+        var arr = ["label-default", "label-primary", "label-success", "label-info", "label-warning", "label-danger"];
+        var el = $(".share-article li span");
+
+        //console.info(el);
+        el.each(function (index, element) {
+            var n = Math.floor(Math.random() * arr.length + 1) - 1;
+            element.setAttribute('class', 'label ' + arr[n]);
+        });
+
+    });
+</script>
+
+<!--主站介绍横幅!!!!!!!!!!!! -->
+<div class="jumbotron hidden-xs">
+    <div class="container">
+
+        <p id="dazi"></p>
+        @*<p><a class="btn btn-primary btn-lg" href="@Url.Action("TagList", "Wenqing")" role="button">热门标签&raquo;</a></p>*@
+    </div>
+</div>
+<!--文章!!!-->
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-9  ">
+            <div class="articles" id="articles">
+                @Html.Partial("_ArticleList", Model)
+            </div>
+        </div>
+
+        <div class="col-md-3 animated bounceInLeft">
+
+            @{Html.RenderAction("GetToP", new { count = 8 });}
+
+
+            <aside class="hidden-xs mylinks">
+                <a href="#" class="list-group-item disabled page-header myitemhead" style="font-weight:600">【友情链接】</a>
+                <a target="_blank" href="http://gunnarpeipman.com/" class="list-group-item mylinksitem">
+                    <img src="http://img.siyouku.cn/gunnar-peipman.jpg" class="img-circle"> Gunnar Peipman Blog
+                </a>
+                <a target="_blank" href="https://dotnetdaily.net/ " class="list-group-item mylinksitem">
+                    <img src="http://img.siyouku.cn/img52.jpg" class="img-circle"> dotnetdaily
+                </a>
+                <a target="_blank" href="http://www.csharpkit.com/" class="list-group-item mylinksitem">
+                    <img src="http://img.siyouku.cn/img51.jpg" class="img-circle">张善友
+                </a>
+                <a target="_blank" href="http://www.mifengtd.cn" class="list-group-item mylinksitem">
+                    <img src="http://img.siyouku.cn/avatar.png" class="img-circle">褪墨・时间管理
+                </a>
+                <a target="_blank" href="http://blog.lengziyu.com/" class="list-group-item mylinksitem">
+                    <img src="http://img.siyouku.cn/me.410cab29.png" class="img-circle">冷子欲
+                </a>
+                <a target="_blank" href="http://2036475159.lingw.net/" class="list-group-item mylinksitem">
+                    <img src="http://img.siyouku.cn/u=1017274282,2783488915&fm=23&gp=0.jpg" class="img-circle">科技之家
+                </a>
+                <a target="_blank" href="http://www.yangqq.com/about.html" class="list-group-item mylinksitem">
+                    <img src="http://img.siyouku.cn/photos2.jpg" class="img-circle">杨青的个人博客
+                </a>
+                <a target="_blank" href="http://www.xiabingbao.com/" class="list-group-item mylinksitem">
+                    <img src="http://img.siyouku.cn/70f933e9jw8eoub3nrzk5j205k05kmx9.jpg" class="img-circle">蚊子博客
+                </a>
+                <a target="_blank" href="http://www.rrballs.cn" class="list-group-item mylinksitem">
+                    <img src="http://img.siyouku.cn/100x100" class="img-circle">人人小球
+                </a>
+                
+                <a target="_blank" href="http://www.zouzhiqiang.com/daohang" class="list-group-item mylinksitem">
+                    <img src="http://img.siyouku.cn/fac494264beff70ed91fedf32783552b_default_1449556034479_jpg.jpg" class="img-circle">个人网站大全
+                </a>
+            </aside>
+
+
+        </div>
+    </div>
+    @*@{Html.RegisterMvcPagerScriptResource();}*@
+
+</div>

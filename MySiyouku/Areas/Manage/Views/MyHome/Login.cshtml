@@ -1,0 +1,293 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<title>后台登入</title>
+    <script src="http://code.jquery.com/jquery-2.1.1-rc2.min.js"></script>
+    <script src="~/Content/layer-v3.0.1/layer/layer.js"></script>
+    <link href="~/Content/layer-v3.0.1/layer/skin/default/layer.css" rel="stylesheet" />
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 最新的 fontawesome 核心 css 文件 -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+    
+    function keyLogin() {
+        if (event.keyCode == 13)  //回车键的键值为13
+            document.getElementById("logbtn").click(); //调用登录按钮的登录事件
+    }
+    $(function() {
+        $("#body").height($(window).height());
+
+        $("#logbtn").click(function() {
+            var pwd = $("#exampleInputPassword1").val();
+            var uname = $("#username").val();
+            $.post('@Url.Action("ChkLogin")',
+                { UserName: uname, PassWord: pwd },
+                function(data) {
+                    if (data.Code === 0) {
+                        window.location.href="@Url.Action("Index")";
+                    } else {
+                        console.info(data);
+                        layer.msg(data.Msg, {
+                            icon: 1,
+                            skin: 'layer-ext-moon' //该皮肤由layer.seaning.com友情扩展。关于皮肤的扩展规则，去这里查阅
+                        });
+                    }
+                }, "JSON");
+        });
+    });
+ 
+
+</script>
+    
+
+<style>
+        body {
+            background: #000;
+            min-height: 768px;
+        }
+
+        html, body, div, p, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form, input, select, button, textarea, iframe, table, th, td {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        body {
+            min-width: 1200px;
+            position: relative;
+        }
+
+        body, button, input, select, textarea {
+            font: .9em "微软雅黑";
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow: -Scroll;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: #000;
+            position: relative;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol, a {
+            list-style: none;
+        }
+
+            a:link {
+                text-decoration: none;
+            }
+
+            a:visited {
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: none;
+                color: #000;
+            }
+
+            a:active {
+                text-decoration: none;
+            }
+        /* 设置滚动条的样式 */
+        ::-webkit-scrollbar {
+            width: 2px;
+        }
+        /* 滚动槽 */
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset006pxrgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+        /* 滚动条滑块 */
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: rgba(0,0,0,0.1);
+            -webkit-box-shadow: inset006pxrgba(0,0,0,0.5);
+        }
+
+            ::-webkit-scrollbar-thumb:window-inactive {
+                width: 3px;
+                background: rgba(0,0,0,0.3);
+            }
+        /*背景虚化*/
+        .blur {
+            -webkit-filter: blur(10px); /* Chrome, Opera */
+            -moz-filter: blur(10px);
+            -ms-filter: blur(10px);
+            filter: blur(10px);
+        }
+        /*区域内虚化  值:像素*/
+        .blur {
+            -webkit-filter: blur(2px); /* Chrome, Opera */
+            -moz-filter: blur(2px);
+            -ms-filter: blur(2px);
+            filter: blur(2px);
+        }
+
+        .bg-canvas {
+            position: absolute;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            min-height: 768px;
+        }
+
+            .bg-canvas iframe {
+                border: 0px;
+                width: 100%;
+                height: 100%;
+            }
+
+        .cont {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+            .cont section {
+                width: 1200px;
+                height: 100%;
+                margin: 0 auto;
+            }
+
+        .cont_left {
+            position: relative;
+            top: 46%;
+            width: 650px;
+            float: left;
+            color: #fff;
+        }
+
+            .cont_left h1 {
+                font-size: 48px;
+                font-weight: 900;
+                margin-bottom: 10px;
+                letter-spacing: 4px;
+            }
+
+        .cont_right {
+            position: relative;
+            top: 33%;
+            right: 0px;
+            float: right;
+            width: 350px;
+            height: 350px;
+            background: rgba(255,255,255,.1);
+            border: 1px solid rgba(255,255,255,.5);
+            /*黑色的样式不好使*/
+            /*color: #fff;*/
+            border-radius: 10px;
+            padding: 50px 15px;
+        }
+
+            .cont_right h2 {
+                margin-bottom: 35px;
+                color: #fff;
+            }
+
+        .form-group {
+            margin-bottom: 50px;
+        }
+
+            .form-group p {
+                position: relative;
+            }
+
+                .form-group p i {
+                    width: 34px;
+                    height: 34px;
+                    font-size: 20px;
+                    text-align: center;
+                    line-height: 34px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    color: #000;
+                    /*黑色的样式不好使*/
+                    /*color: #fff;*/
+                }
+
+                .form-group p a {
+                    width: 34px;
+                    height: 34px;
+                    font-size: 20px;
+                    text-align: center;
+                    line-height: 34px;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    color: #000;
+                    /*黑色的样式不好使*/
+                    /*color: #fff;*/
+                }
+
+            .form-group input {
+                padding-left: 34px;
+                /*黑色的样式不好使*/
+                /*background:rgba(0,0,0,.1);
+            color:#fff;
+            border: 1px solid rgba(255,255,255,.2);*/
+            }
+
+                .form-group input[id="inputEmail3"] {
+                    border-bottom-left-radius: 0px;
+                    border-bottom-right-radius: 0px;
+                }
+
+                .form-group input[id="exampleInputPassword3"] {
+                    border-top-left-radius: 0px;
+                    border-top-right-radius: 0px;
+                }
+    </style>
+</head>
+
+<body id="body" onkeydown="keyLogin()">
+    <nav class="bg-canvas blur"><iframe name="htm" src="http://www.jq22.com/js/a7.html"></iframe></nav>
+    <section class="cont">
+        <section>
+            <nav class="cont_left">
+                <p><h1>个人私有库后台</h1>
+                <p style="text-align: right;font-size: 20px;">网络爬虫、数据分析、学习记录</p>
+                 
+            </nav>
+            <nav class="cont_right">
+                <h2>私有库登陆</h2>
+                <div class="form-group">
+                    <p><i class="fa fa-user"></i>
+                        
+                    <input type="text" value="wenqing" class="form-control" id="username" name="username" placeholder="请输入用户名"></p>
+                    <br />
+                    <p>
+                        <i class="fa fa-key"></i>
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="pwdPrompt" placeholder="请输入密码">
+                     
+                        <a class="eye"><i class="fa fa-eye-slash"></i></a>
+                    </p>
+                </div>
+                <a id="logbtn"><button type="button" class="btn btn-primary btn-lg btn-block">登陆</button></a>
+               
+            </nav>
+        </section>
+    </section>
+</body>
+ 
+
+</html>

@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "最新发布文章";
+}
+@model List<Siyouku.Model.Database.DailyEnglish>
+<script type="text/javascript">
+    var pagenum = 2;
+    $(window).on('scroll',
+        function () {
+            var viewH = $(this).height();//可见高度
+            var scrollTop = $(this).scrollTop();//滚动高度
+            console.info(viewH);
+            console.info(scrollTop);
+            if (uiIsPageBottom()) {
+               //var ii= layer.msg('数据加载中...', {
+               //     icon: 16
+               //});
+                waterallowData(pagenum);
+                
+               
+                pagenum++;
+            }
+
+        });
+
+    function waterallowData(pagenum,ii) {
+       // console.info(pagenum);
+        var params = { pagesize: 3, pagenumber: pagenum }
+        $.ajax({
+            url: '@Url.Action("GetDailyEnglishJson")',
+            type: "get",
+            data: params,
+            success: function (data, textStatus) {
+               
+                data = JSON.parse(data);
+                if (textStatus == "success" && data.rows.length > 0) {
+                    //console.info(data);
+                    for (var i = 0; i < data.rows.length; i++) {
+                        var strhtml = '<div class="cd-timeline-block"><div class="cd-timeline-img cd-picture"><img src="http://img.siyouku.cn/aixin.png" alt="Location" /></div><div class="cd-timeline-content animated bounceInLeft"> <a href="#" target="_blank">' + data.rows[i].ContentEg + '</a> <p>' + data.rows[i].ContentCn + '</p><span class="cd-date"> ' + data.rows[i].CreateTime + '</span></div></div>';
+                        $("#cd-timeline").append(strhtml);
+                    }
+                }
+                //layer.close(ii);
+            }
+        });
+    }
+    // 描 述：判断是滚动到页面底部
+    function uiIsPageBottom() {
+        var scrollTop = 0;
+        var clientHeight = 0;
+        var scrollHeight = 0;
+        if (document.documentElement && document.documentElement.scrollTop) {
+            scrollTop = document.documentElement.scrollTop;
+        } else if (document.body) {
+            scrollTop = document.body.scrollTop;
+        }
+        if (document.body.clientHeight && document.documentElement.clientHeight) {
+            clientHeight = (document.body.clientHeight < document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
+        } else {
+            clientHeight = (document.body.clientHeight > document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
+        }
+        // 知识点：Math.max 比较大小，取最大值返回
+        scrollHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        var tempx = Math.round(scrollTop) + clientHeight;
+        if (tempx == scrollHeight || tempx==(scrollHeight-1)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+</script>
+
+<link href="~/Content/css/timespan.css" rel="stylesheet" />
+<section id="cd-timeline" class="cd-container">
+    @foreach (var item in Model)
+    {
+        <div class="cd-timeline-block">
+            <div class="cd-timeline-img cd-picture">
+                <img src="http://img.siyouku.cn/aixin.png" alt="Location" />
+
+            </div>
+            <div class="cd-timeline-content animated bounceInLeft">
+                <a href="#" target="_blank">@item.ContentEg</a>
+                <p>
+                    @*@Html.Raw(item.Content.Length >= 500 ? item.Content.Substring(0, 499) : item.Title)*@
+                    @item.ContentCn
+                </p>
+                <span class="cd-date">@item.CreateTime</span>
+            </div>
+        </div>
+    }
+
+</section>
+
+
+
+
+
+
+
+

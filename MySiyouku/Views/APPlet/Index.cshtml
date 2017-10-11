@@ -1,0 +1,189 @@
+﻿
+@{
+    ViewBag.Title = "小程序大全";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+        ViewBag.Keywords = "小程序,小程序大全,小程序列表,有趣小程序,个人库,小程序开发,微信小程序";
+        ViewBag.Description = "在这里你可以找到市场上各种优质,好玩,有趣的小程序,私有库小程序大全带你轻松玩转小程序.";
+}
+<script type="text/javascript">
+    $(function() {
+        $(".collect").click(function () {
+            collect();
+        });
+
+        curselect();
+
+    });
+    var pagenum = 3;
+    $(window).on('scroll',
+        function () {
+            var viewH = $(this).height();//可见高度
+            var scrollTop = $(this).scrollTop();//滚动高度
+            console.info(viewH);
+            console.info(scrollTop);
+            if (uiIsPageBottom()) {
+                //var ii= layer.msg('数据加载中...', {
+                //     icon: 16
+                //});
+                waterallowData(pagenum);
+ 
+                pagenum++;
+            }
+
+        });
+
+    function waterallowData(pagenum, ii) {
+        // console.info(pagenum);
+             
+        var params = { pagesize: 10, pagenumber: pagenum, category: '@ViewBag.category' }
+        $.ajax({
+            url: '@Url.Action("GetAppletJson")',
+            type: "get",
+            data: params,
+            success: function (data, textStatus) {
+
+                data = JSON.parse(data);
+                if (textStatus == "success" && data.rows.length > 0) {
+                    //console.info(data);
+                    for (var i = 0; i < data.rows.length; i++) {
+                        var strhtml = '<div class="col-md-4 divli  animated flipInX">' +
+
+                            '<div class="content-list">' +
+                            ' <div class="main-content-img">' +
+                            '<img src="' + data.rows[i].SaomiaoUrl + '">' +
+                            '</div>' +
+                            ' <p class="name">' + data.rows[i].Name + '</p>' +
+                            ' <p class="info">' + data.rows[i].Summary + '</p>' +
+                            ' <p class="type">' + data.rows[i].CategoryName + '</p>' +
+                            '<p class="collect"  onclick="collect();">收藏+</p>' +
+                            '</div>' +
+                            '<div class="hask"></div>' +
+                            '<div class="content-mask">' +
+                            '   <div class="ercode">' +
+                            ' <img src="http://img.xcxdh666.com/wxappnav/20170206/p6a37d61vl9sn8833nton1oj5092524i.jpg">' +
+                            ' </div>' +
+                            '<div class="center">' +
+                            ' <p class="sao">微信扫一扫</p>' +
+                            ' <p class="tiyan">立即体验</p>' +
+                            ' </div>' +
+                            '<div class="mask-right">' +
+                            ' <a href="https://www.xcxdh666.com/detail.htm?id=86">查看详情</a>' +
+                            ' </div>' +
+                            '</div>' +
+
+                            ' </div>';
+                        $("#cd-timeline").append(strhtml);
+                    }
+                }
+                //layer.close(ii);
+            }
+        });
+    }
+    // 描 述：判断是滚动到页面底部
+    function uiIsPageBottom() {
+        var scrollTop = 0;
+        var clientHeight = 0;
+        var scrollHeight = 0;
+        if (document.documentElement && document.documentElement.scrollTop) {
+            scrollTop = document.documentElement.scrollTop;
+        } else if (document.body) {
+            scrollTop = document.body.scrollTop;
+        }
+        if (document.body.clientHeight && document.documentElement.clientHeight) {
+            clientHeight = (document.body.clientHeight < document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
+        } else {
+            clientHeight = (document.body.clientHeight > document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
+        }
+        // 知识点：Math.max 比较大小，取最大值返回
+        scrollHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        var tempx = Math.round(scrollTop) + clientHeight;
+        if (tempx == scrollHeight || tempx == (scrollHeight - 1)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    function collect() {
+        layer.msg('收藏成功，可在我的小程序中查看！');
+    }
+
+   function curselect() {
+       var curcategory = '@ViewBag.category';
+       $(".menu-warp.hidden-xs li").each(function () {
+           //console.info($(this).find("a").text());
+           if ($(this).find("a").text() === curcategory)
+               $(this).addClass('cur').siblings().removeClass('cur');
+       });
+   }
+
+</script>
+@model List<MySiyouku.Models.ViewModel.AppletVm>
+<div class="list-content container">
+    <div class="menu-warp hidden-xs">
+        <ul>
+            <li><a href="@Url.Action("Index")">全部</a></li>
+            <li><a href="@Url.Action("Index",new {category="工具"})">工具</a></li>
+            <li><a href="@Url.Action("Index",new {category="购物"})">购物</a></li>
+            <li><a href="@Url.Action("Index",new {category="交通"})">交通</a></li>
+            <li><a href="@Url.Action("Index",new {category="生活"})">生活</a></li>
+            <li><a href="@Url.Action("Index",new {category="娱乐"})">娱乐</a></li>
+            <li><a href="@Url.Action("Index",new {category="新闻"})">新闻</a></li>
+            <li><a href="@Url.Action("Index",new {category="教育"})">教育</a></li>
+            <li><a href="@Url.Action("Index",new {category="医疗"})">医疗</a></li>
+            <li><a href="@Url.Action("Index",new {category="美图"})">美图</a></li>
+            <li><a href="@Url.Action("Index",new {category="旅行"})">旅行</a></li>
+            <li><a href="@Url.Action("Index",new {category="阅读"})">阅读</a></li>
+            <li><a href="@Url.Action("Index",new {category="视频"})">视频</a></li>
+            <li><a href="@Url.Action("Index",new {category="美食"})">美食</a></li>
+            <li><a href="@Url.Action("Index",new {category="房产"})">房产</a></li>
+            <li><a href="@Url.Action("Index",new {category="汽车"})">汽车</a></li>
+            <li><a href="@Url.Action("Index",new {category="查询"})">查询</a></li>
+            <li><a href="@Url.Action("Index",new {category="投资理财"})">投资理财</a></li>
+            <li><a href="@Url.Action("Index",new {category="运动健身"})">运动健身</a></li>
+            <li><a href="@Url.Action("Index",new {category="社区"})">社区</a></li>
+            <li><a href="@Url.Action("Index",new {category="自媒体"})">自媒体</a></li>
+            <li><a href="@Url.Action("Index",new {category="体育"})">体育</a></li>
+        </ul>
+    </div>
+    
+
+    <div class="pro-list" id="hover">
+        <div class="all">
+            <div class="row" id="cd-timeline">
+
+                @foreach (var app in Model)
+                {
+                    <div class="col-sm-4 divli  animated flipInX">
+
+                        <div class="content-list">
+                            <div class="main-content-img">
+                                <img src="@app.SaomiaoUrl">
+                            </div>
+                            <p class="name">@app.Name</p>
+                            <p class="info">@app.Summary</p>
+                            <p class="type">@app.CategoryName</p>
+                            <p class="collect">收藏+</p>
+                        </div>
+                        <div class="hask"></div>
+                        <div class="content-mask">
+                            <div class="ercode">
+                                <img src="http://img.xcxdh666.com/wxappnav/20170206/p6a37d61vl9sn8833nton1oj5092524i.jpg">
+                            </div>
+                            <div class="center">
+                                <p class="sao">微信扫一扫</p>
+                                <p class="tiyan">立即体验</p>
+                            </div>
+                            <div class="mask-right">
+                                <a href="https://www.xcxdh666.com/detail.htm?id=86">查看详情</a>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

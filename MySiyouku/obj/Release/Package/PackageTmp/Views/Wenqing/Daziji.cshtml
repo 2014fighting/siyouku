@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "最简洁的js简单打印机效果代码";
+}
+
+    <!--
+    注：在js中，innerHTML 可以在里面写入html代码，比如 <br> 会解析成换行，而不会显示
+    innerText 只能在里面写入文本，比如 <br> 会显示为 <br>，而不会解析为换行
+    -->
+ 
+ <div class="container">
+    <div id="dazi" style="font-size: 20px; color:chocolate"></div>
+    <script>
+        window.onload = function () {
+            var dazi = document.getElementById('dazi');
+            var msg = "翅膀是落在天上的叶子<br>天堂原来应该不是妄想<br>只是我早已经遗忘<br>当初怎么开始飞翔<br>孤单是一个人的狂欢<br>狂欢是一群人的孤单" +
+            "爱情原来的开始是陪伴<br>但我也渐渐地遗忘<br>当时是怎样有人陪伴<br> 我一个人吃饭旅行(到处)走走停停<br>也一个人看书写信自己对话谈心<br>只是心又飘到了哪里" +
+            "就连自己看也看不清<br>我想我不仅仅是失去你<br>  我一个人吃饭旅行(到处)走走停停<br>也一个人看书写信自己对话谈心<br>只是心又飘到了哪里<br>就连自己看也看不清" +
+            "我想我不仅仅是失去你<br>孤单是一个人的狂欢<br>狂欢是一群人的孤单<br> 爱情原来的开始是陪伴<br> 但我也渐渐地遗忘<br>当时是怎样有人陪伴<br> 我一个人吃饭旅行(到处)走" + "走停停<br>也一个人看书写信自己对话谈心<br>只是心又飘到了哪里<br>就连自己看也看不清<br>我想我不仅仅是失去你<br>我一个人吃饭旅行(到处)走走停停<br>也一个人看书写信自己对话谈心<br>只是心又飘到了哪里<br>就连自己看也看不清<br>我想我不仅仅是失去你<br>叶子是不会飞翔的翅膀<br>翅膀是落在天上的叶子";
+            var len = msg.length;
+            var seq = 0;
+            var speed = 200;
+            var timeId = null;
+            function daziStart() {
+                dazi.innerHTML = msg.substring(0, seq) + '_';
+                if (seq <= len) {
+                    seq++;
+                    timeId = setTimeout(daziStart, speed);
+                } else {
+                    setTimeout(function () {
+                        dazi.innerHTML = msg.substring(0, seq);
+                    }, 800);
+                }
+            }
+            daziStart();
+        }
+    </script>
+</div>

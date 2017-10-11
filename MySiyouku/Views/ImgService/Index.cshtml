@@ -1,0 +1,200 @@
+﻿
+@{
+    ViewBag.Title = "我的图库";
+}
+
+<style>
+    .column img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .pic_d {
+        display: block;
+        float: left;
+        margin: 10px 10px;
+    }
+    .gray {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0;
+        background: rgba(0,0,0,0.6);
+    }
+
+    .showImg {
+        display: none;
+        position: absolute;
+        top: 100px;
+        left: 365px;
+        width: 820px;
+        height: 512px;
+        border: 10px solid #fff;
+    }
+    .showImg img {
+         width:800px;
+        height: 492px;
+    }
+
+        .showImg img.prev {
+            position: absolute;
+            top: 230px;
+            left: -63px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .showImg img.next {
+            position: absolute;
+            top: 230px;
+            left: 830px;
+             width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+</style>
+<script type="text/javascript">
+    $(function () {
+        waterallowData(1);
+        inint();
+        $("#sky-footer").hide();
+    });
+    var pagenum = 3;
+    $(window).on('scroll',
+        function () {
+            var viewH = $(this).height();//可见高度
+            var scrollTop = $(this).scrollTop();//滚动高度
+            console.info(viewH);
+            console.info(scrollTop);
+            if (uiIsPageBottom()) {
+                //var ii= layer.msg('数据加载中...', {
+                //     icon: 16
+                //});
+                waterallowData(pagenum);
+
+                pagenum++;
+            }
+
+        });
+
+    function waterallowData(pagenum, ii) {
+        // console.info(pagenum);
+
+        var params = { size: 150, page: pagenum }
+        $.ajax({
+            url: '@Url.Action("GetAllPic")',
+            type: "get",
+            data: params,
+            success: function (data, textStatus) {
+                console.info(data);
+                data = JSON.parse(data);
+                if (textStatus == "success" && data.rows.length > 0) {
+                    //console.info(data);
+                    for (var i = 0; i < data.rows.length; i++) {
+                        var strhtml = '<div class="pic_d animated zoomIn">'
+                            + '<img class="img-responsive img-thumbnail" src="http://img.siyouku.cn/' + data.rows[i].ImgName + '"></div>';
+                        $("#waterFallColumn").append(strhtml);
+                    }
+                }
+                //layer.close(ii);
+            }
+        });
+    }
+    // 描 述：判断是滚动到页面底部
+    function uiIsPageBottom() {
+
+        var scrollTop = 0;
+        var clientHeight = 0;
+        var scrollHeight = 0;
+        if (document.documentElement && document.documentElement.scrollTop) {
+            scrollTop = document.documentElement.scrollTop;
+        } else if (document.body) {
+            scrollTop = document.body.scrollTop;
+        }
+        if (document.body.clientHeight && document.documentElement.clientHeight) {
+            clientHeight = (document.body.clientHeight < document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
+        } else {
+            clientHeight = (document.body.clientHeight > document.documentElement.clientHeight) ? document.body.clientHeight : document.documentElement.clientHeight;
+        }
+        // 知识点：Math.max 比较大小，取最大值返回
+        scrollHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+        var tempx = Math.round(scrollTop) + clientHeight;
+        if (tempx == scrollHeight) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    ////////////预览
+    function inint() {
+        var index = 0;
+        var bigSrc = "";
+        $("#waterFallColumn").on("click", ".pic_d", function () {
+            index = $(this).index();
+            console.info(index);
+            $(".gray").show();
+            $(".showImg").show();
+            bigSrc = $(this).find("img").attr("src");
+            $(".showImg img.bigImg").attr("src", bigSrc);
+        });
+       
+        $(".gray").click(function () {
+            $(".gray").hide();
+            $(".showImg").hide();
+        });
+
+        $(".showImg img.next").click(function () {
+           
+            if (index >=$("#waterFallColumn .pic_d").length - 1) {
+                //index=0;
+                layer.msg("已经是最后一张图片啦！");
+                return;
+            } else {
+                index++;
+                bigSrc = $("#waterFallColumn .pic_d").eq(index).find("img").attr("src");
+                $(".showImg img.bigImg").attr("src", bigSrc);
+            }
+           
+
+
+        });
+
+        $(".showImg img.prev").click(function () {
+           
+            if (index <=0) {
+                //index = $("#waterFallColumn .pic_d").length - 1;
+                layer.msg("第一张图片！");
+                return;
+            } else {
+                index--;
+                bigSrc = $("#waterFallColumn .pic_d").eq(index).find("img").attr("src");
+                $(".showImg img.bigImg").attr("src", bigSrc);
+            }
+               
+
+            });
+    }
+ 
+   
+</script>
+
+
+
+<div id="container" class="container">
+    <span id="waterFallColumn" class="column">
+
+    </span>
+    <div class="gray"></div>
+    <div class="showImg">
+        <img src="http://img.siyouku.cn/img34.jpg" class="prev">
+        <img src="http://img.siyouku.cn/img33.jpg" class="next">
+        <img src="http://cdn.attach.qdfuns.com/notes/pics/201708/28/152247enooreornrre1zca.jpg" class="bigImg">
+    </div>
+</div>
+
+

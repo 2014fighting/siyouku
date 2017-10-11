@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "TagsAdd";
+}
+ 
+ 
+<script type="text/javascript">
+ 
+</script>
+@using Siyouku.Model.Database
+@model Tag
+ 
+<form class="form-horizontal" id="comform">
+    <div class="form-group">
+        @Html.LabelFor(i => i.CatName, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.TextBoxFor(i => i.CatName, new { @class = "form-control", placeholder = "标签名称" })
+        </div>
+    </div>
+  
+    <button type="button" class="btn btn-primary" onclick="wenqing.add('comform','@Url.Action("TagsAdd")');">提交</button>
+
+    <button type="button" class="btn btn-primary" onclick="wenqing.tabclose('@Url.Action("TagsAdd")','@Url.Action("Index","Tags")')">返回</button>
+    @*}*@
+</form>
+
+
+
+
+
