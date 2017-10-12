@@ -3,3 +3,6 @@
 ################################################################################
 
 /MySiyouku/bin
+/MySiyouku/obj
+/packages
+/Siyouku.Model/Migrations

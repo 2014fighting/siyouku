@@ -32,37 +32,7 @@
     
         <div class="col-md-3 animated bounceInLeft">
             @{Html.RenderAction("GetToP","Home", new { count = 8 });}
-            <aside class="hidden-xs mylinks">
-                <a href="#" class="list-group-item disabled page-header myitemhead" style="font-weight:600">【友情链接】</a>
-                <a target="_blank" href="http://gunnarpeipman.com/" class="list-group-item mylinksitem">
-                    <img src="http://img.siyouku.cn/gunnar-peipman.jpg" class="img-circle"> Gunnar Peipman Blog
-                </a>
-                <a target="_blank" href="http://heeroluo.net/" class="list-group-item mylinksitem">
-                    <img src="http://img.siyouku.cn/6362180537704687503272779.jpg" class="img-circle"> heeroBlog
-                </a>
-                <a target="_blank" href="http://laker.me/blog/index.html" class="list-group-item mylinksitem">
-                    <img src="http://img.siyouku.cn/avatar.png" class="img-circle">Laker's Blog
-                </a>
-                <a target="_blank" href="http://blog.lengziyu.com/" class="list-group-item mylinksitem">
-                    <img src="http://img.siyouku.cn/me.410cab29.png" class="img-circle">冷子欲
-                </a>
-                <a target="_blank" href="http://2036475159.lingw.net/" class="list-group-item mylinksitem">
-                    <img src="http://img.siyouku.cn/u=1017274282,2783488915&fm=23&gp=0.jpg" class="img-circle">科技之家
-                </a>
-                <a target="_blank" href="http://www.yangqq.com/about.html" class="list-group-item mylinksitem">
-                    <img src="http://img.siyouku.cn/photos2.jpg" class="img-circle">杨青的个人博客
-                </a>
-                <a target="_blank" href="http://www.xiabingbao.com/" class="list-group-item mylinksitem">
-                    <img src="http://img.siyouku.cn/70f933e9jw8eoub3nrzk5j205k05kmx9.jpg" class="img-circle">蚊子博客
-                </a>
-                <a target="_blank" href="http://www.rrballs.cn" class="list-group-item mylinksitem">
-                    <img src="http://img.siyouku.cn/100x100" class="img-circle">人人小球
-                </a>
-
-                <a target="_blank" href="http://www.zouzhiqiang.com/daohang" class="list-group-item mylinksitem">
-                    <img src="http://img.siyouku.cn/fac494264beff70ed91fedf32783552b_default_1449556034479_jpg.jpg" class="img-circle">个人网站大全
-                </a>
-            </aside>
+            @{Html.RenderAction("GetLink", new { count = 10 });}
         </div>
     </div>
    

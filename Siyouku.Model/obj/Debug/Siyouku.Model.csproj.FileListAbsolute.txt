@@ -48,3 +48,4 @@ F:\vs2017Projects\siyouku\Siyouku.Model\obj\Debug\Siyouku.Model.csproj.GenerateR
 F:\vs2017Projects\siyouku\Siyouku.Model\obj\Debug\Siyouku.Model.csproj.CoreCompileInputs.cache
 F:\vs2017Projects\siyouku\Siyouku.Model\obj\Debug\Siyouku.Model.dll
 F:\vs2017Projects\siyouku\Siyouku.Model\obj\Debug\Siyouku.Model.pdb
+F:\vs2017Projects\siyouku\Siyouku.Model\obj\Debug\Siyouku.Model.Migrations.vicky14.resources

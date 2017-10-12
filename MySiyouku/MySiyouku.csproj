@@ -25,6 +25,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -916,6 +917,7 @@
     <Content Include="Views\Wenqing\Missyou.cshtml" />
     <Content Include="Views\ImgService\Index.cshtml" />
     <Content Include="Views\Wenqing\Animation.cshtml" />
+    <Content Include="Views\Home\GetLink.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

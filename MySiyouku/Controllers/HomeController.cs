@@ -30,14 +30,17 @@ namespace MySiyouku.Controllers
         readonly IUserInfoRepository _userInfoRepository;
         readonly ITagsRepository _tagsRepository;
         readonly IArticleRepository _articleRepository;
+        private readonly ILinksRepository _linksRepository;
         
+
         //构造器注入
-        public HomeController(IUserInfoRepository userInfoRepository,ITagsRepository tagsRepository, IArticleRepository articleRepository)
+        public HomeController(IUserInfoRepository userInfoRepository,ITagsRepository tagsRepository, IArticleRepository articleRepository, ILinksRepository linksRepository)
         {
             _userInfoRepository = userInfoRepository;
             _tagsRepository = tagsRepository;
-            _articleRepository = articleRepository;
-            
+            _articleRepository = articleRepository;  
+                _linksRepository =linksRepository;
+
         }
 
         // GET: Home
@@ -299,6 +302,13 @@ namespace MySiyouku.Controllers
         {
             return View();
         }
- 
+
+
+        public ActionResult GetLink(int count)
+        {
+            var x = _linksRepository.GetLinks().OrderBy(i => i.LinkSort).Take(count).ToList();
+            return View(x);
+        }
+
     }
 }

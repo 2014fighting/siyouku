@@ -1,0 +1,17 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model List<Siyouku.Model.Database.Links>
+<aside class="hidden-xs mylinks">
+ 
+        <a href="#" class="list-group-item disabled page-header myitemhead" style="font-weight:600">【友情链接】</a>
+        @foreach (var a in Model)
+        {
+            <a target="_blank" href="@a.LinkUrl" class="list-group-item mylinksitem">
+                <img src="@a.LinkImg" class="img-circle">@a.LinkName
+            </a>
+        }
+ 
+</aside>

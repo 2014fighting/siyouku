@@ -19,6 +19,8 @@ namespace Siyouku.Model
 
         public IDbSet<Picture> Picture { get; set; }
 
+        public IDbSet<Links> Links { get; set; }
+ 
         public SiyoukuContext()
             : base("SiyoukuSql")
         {

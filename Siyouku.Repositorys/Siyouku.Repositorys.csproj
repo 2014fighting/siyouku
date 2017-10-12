@@ -50,11 +50,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryInterface\IArticleRepository.cs" />
     <Compile Include="RepositoryInterface\IBaseRepository.cs" />
+    <Compile Include="RepositoryInterface\ILinksRepository.cs" />
     <Compile Include="RepositoryInterface\IPictureRepository.cs" />
     <Compile Include="RepositoryInterface\ITagsRepository.cs" />
     <Compile Include="RepositoryInterface\IUserInfoRepository.cs" />
     <Compile Include="Repository\ArticleRepository.cs" />
     <Compile Include="Repository\BaseRepository.cs" />
+    <Compile Include="Repository\LinksRepository.cs.cs" />
     <Compile Include="Repository\PictureRepository.cs" />
     <Compile Include="Repository\TagsRepository.cs" />
     <Compile Include="Repository\UserInfoRepository.cs" />

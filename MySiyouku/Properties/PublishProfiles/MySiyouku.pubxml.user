@@ -71,6 +71,9 @@
     <File Include="bin/HtmlAgilityPack.dll">
       <publishTime>07/14/2016 11:01:16</publishTime>
     </File>
+    <File Include="bin/HtmlAgilityPack.pdb">
+      <publishTime>07/14/2016 11:01:16</publishTime>
+    </File>
     <File Include="bin/log4net.config">
       <publishTime>07/11/2017 14:13:35</publishTime>
     </File>
@@ -99,10 +102,13 @@
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/MySiyouku.dll">
-      <publishTime>09/15/2017 21:46:19</publishTime>
+      <publishTime>10/12/2017 11:35:10</publishTime>
+    </File>
+    <File Include="bin/MySiyouku.pdb">
+      <publishTime>10/12/2017 11:35:10</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>05/11/2017 15:08:08</publishTime>
+      <publishTime>06/13/2016 23:06:14</publishTime>
     </File>
     <File Include="bin/Owin.dll">
       <publishTime>11/13/2012 12:19:34</publishTime>
@@ -147,10 +153,19 @@
       <publishTime>06/18/2015 20:19:46</publishTime>
     </File>
     <File Include="bin/Siyouku.Model.dll">
-      <publishTime>08/29/2017 22:50:22</publishTime>
+      <publishTime>10/12/2017 11:35:02</publishTime>
+    </File>
+    <File Include="bin/Siyouku.Model.dll.config">
+      <publishTime>01/19/2017 16:49:11</publishTime>
+    </File>
+    <File Include="bin/Siyouku.Model.pdb">
+      <publishTime>10/12/2017 11:35:02</publishTime>
     </File>
     <File Include="bin/Siyouku.Repositorys.dll">
-      <publishTime>09/15/2017 20:32:12</publishTime>
+      <publishTime>10/12/2017 11:35:04</publishTime>
+    </File>
+    <File Include="bin/Siyouku.Repositorys.pdb">
+      <publishTime>10/12/2017 11:35:04</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>01/28/2015 04:02:42</publishTime>
@@ -2289,7 +2304,7 @@
       <publishTime>01/19/2017 16:49:11</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/15/2017 17:03:15</publishTime>
+      <publishTime>10/12/2017 11:35:34</publishTime>
     </File>
   </ItemGroup>
 </Project>

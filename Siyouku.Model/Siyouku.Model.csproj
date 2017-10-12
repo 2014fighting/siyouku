@@ -55,6 +55,7 @@
     <Compile Include="Database\Books.cs" />
     <Compile Include="Database\DailyEnglish.cs" />
     <Compile Include="Database\BaseField.cs" />
+    <Compile Include="Database\Links.cs" />
     <Compile Include="Database\Picture.cs" />
     <Compile Include="Database\Tag.cs" />
     <Compile Include="Database\UserInfo.cs" />
@@ -115,6 +116,10 @@
     <Compile Include="Migrations\201708291349437_vicky13.Designer.cs">
       <DependentUpon>201708291349437_vicky13.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710120637473_vicky14.cs" />
+    <Compile Include="Migrations\201710120637473_vicky14.Designer.cs">
+      <DependentUpon>201710120637473_vicky14.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SiyoukuContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -165,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708291349437_vicky13.resx">
       <DependentUpon>201708291349437_vicky13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710120637473_vicky14.resx">
+      <DependentUpon>201710120637473_vicky14.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
