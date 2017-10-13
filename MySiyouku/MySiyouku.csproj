@@ -695,6 +695,8 @@
     <Content Include="Content\layui\font\iconfont.ttf" />
     <Content Include="Content\layui\font\iconfont.woff" />
     <Content Include="Content\bootstrap-select.css.map" />
+    <Content Include="Areas\Manage\Views\Links\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Links\LinksAdd.cshtml" />
     <None Include="Properties\PublishProfiles\MySiyouku.pubxml" />
     <None Include="Properties\PublishProfiles\xxx.pubxml" />
     <Content Include="Scripts\bootstrap-select.js.map" />
@@ -841,11 +843,13 @@
     <Compile Include="Areas\Manage\Controllers\ArticleController.cs" />
     <Compile Include="Areas\Manage\Controllers\BaseController.cs" />
     <Compile Include="Areas\Manage\Controllers\DailyEnglishController.cs" />
+    <Compile Include="Areas\Manage\Controllers\LinksController.cs" />
     <Compile Include="Areas\Manage\Controllers\MyHomeController.cs" />
     <Compile Include="Areas\Manage\Controllers\TagsController.cs" />
     <Compile Include="Areas\Manage\ManageAreaRegistration.cs" />
     <Compile Include="Areas\Manage\Models\ArticelJson.cs" />
     <Compile Include="Areas\Manage\Models\ArticleDetail.cs" />
+    <Compile Include="Areas\Manage\Models\Common\CustomJsonResult.cs" />
     <Compile Include="Areas\Manage\Models\JsonResult.cs" />
     <Compile Include="Areas\Manage\Models\SelectsModel.cs" />
     <Compile Include="Content\UEditor\net\App_Code\Config.cs" />

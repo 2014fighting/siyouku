@@ -36,7 +36,7 @@ namespace MySiyouku.Areas.Manage.Controllers
                        };
 
 
-            return Json(new { total, rows }, JsonRequestBehavior.AllowGet);
+            return MyJson(new { total, rows }, JsonRequestBehavior.AllowGet);
         }
 
         public async Task<ActionResult> DailyEnglishAdd()

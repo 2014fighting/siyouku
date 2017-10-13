@@ -18,7 +18,6 @@ namespace MySiyouku.Areas.Manage.Controllers
             return View();
         }
         [HttpGet]
-
         public ActionResult GetTagsJson(int limit, int offset, string departmentname, string statu, string search)
         {
             var listTags = Db.Tag.AsQueryable();
@@ -36,7 +35,7 @@ namespace MySiyouku.Areas.Manage.Controllers
                        };
 
 
-            return Json(new {total, rows }, JsonRequestBehavior.AllowGet);
+            return MyJson(new {total, rows }, JsonRequestBehavior.AllowGet);
         }
 
         public async Task<ActionResult> TagsAdd()

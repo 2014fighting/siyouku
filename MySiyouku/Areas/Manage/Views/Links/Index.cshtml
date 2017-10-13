@@ -4,11 +4,11 @@
 }
 
 <div id="toolbar" class="btn-group">
-    <button id="btn_add" type="button" class="btn btn-primary btn-sm">
+    <button id="btn_add" type="button" class="btn btn-primary btn-sm" onclick="wenqing.openDialog('@Url.Action("LinksAdd")','新增友情链接',900,300);">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
     </button>
 
-    <button id="btn_delete" type="button" class="btn btn-danger btn-sm ">
+    <button id="btn_delete" type="button" class="btn btn-danger btn-sm">
         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
     </button>
 
@@ -33,7 +33,7 @@
         //初始化Table
         oTableInit.Init = function () {
             $('#tb_departments').bootstrapTable({
-                url: '@Url.Action("GetDailyEnglishJson")',  //请求后台的URL（*）
+                url: '@Url.Action("GetLinksJson")',  //请求后台的URL（*）
                 method: 'get',   //请求方式（*）
                 toolbar: '#toolbar',  //工具按钮用哪个容器
                 striped: true,   //是否显示行间隔色
@@ -58,27 +58,16 @@
                 showToggle: true,   //是否显示详细视图和列表视图的切换按钮
                 cardView: false,   //是否显示详细视图
                 detailView: false,   //是否显示父子表
-                columns: [{
-                    checkbox: true
-                }
-    , {
-        field: 'Id',
-        title: '标签编号'
-    }, {
-        field: 'ContentCn',
-        title: '中文内容'
-
-    }, {
-        field: 'ContentEg',
-        title: '英文内容'
-
-    }, {
-        field: 'CreateTime',
-        title: '创建时间'
-    }, {
-        field: 'CreateUser',
-        title: '创建人'
-    } ]
+                columns:  [
+                    {checkbox: true},
+                    {field: 'Id',title: '标签编号'},
+                    {field: 'LinkName',title: '链接名称'},
+                    { field: 'LinkImg',title: '图片'},
+                    { field: 'LinkUrl',title: '链接地址'},
+                    { field: 'LinkSort',title: '排序'},
+                    {field: 'CreateTime',title: '创建时间'},
+                    {field: 'CreateUser',title: '创建人'}
+                ]
             });
         };
 
@@ -103,12 +92,12 @@
 
         oInit.Init = function () {
             $("#btn_delete").click(function () {
-                wenqing.delete('@Url.Action("DailyEnglishDelete")', 'tb_departments');
+               // wenqing.delete('@Url.Action("TagsDelete")', 'tb_departments');
             });
 
             $("#btn_add").click(function () {
                 //--
-                wenqing.tabadd("新增标签", '@Url.Action("DailyEnglishAdd")');
+                //wenqing.tabadd("新增标签", '@Url.Action("TagsAdd")');
             });
 
         };
