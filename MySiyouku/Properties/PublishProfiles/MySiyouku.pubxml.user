@@ -18,31 +18,37 @@
       <publishTime>09/15/2017 20:58:21</publishTime>
     </File>
     <File Include="Areas/Manage/Views/Article/Index.cshtml">
-      <publishTime>09/14/2017 19:59:19</publishTime>
+      <publishTime>10/13/2017 21:38:03</publishTime>
     </File>
     <File Include="Areas/Manage/Views/DailyEnglish/DailyEnglishAdd.cshtml">
       <publishTime>06/02/2017 10:29:12</publishTime>
     </File>
     <File Include="Areas/Manage/Views/DailyEnglish/Index.cshtml">
-      <publishTime>06/02/2017 10:20:15</publishTime>
+      <publishTime>10/13/2017 22:40:36</publishTime>
+    </File>
+    <File Include="Areas/Manage/Views/Links/Index.cshtml">
+      <publishTime>10/13/2017 22:40:14</publishTime>
+    </File>
+    <File Include="Areas/Manage/Views/Links/LinksAdd.cshtml">
+      <publishTime>10/13/2017 21:36:30</publishTime>
     </File>
     <File Include="Areas/Manage/Views/MyHome/HelloPage.cshtml">
       <publishTime>01/19/2017 16:48:42</publishTime>
     </File>
     <File Include="Areas/Manage/Views/MyHome/Index.cshtml">
-      <publishTime>06/02/2017 10:25:49</publishTime>
+      <publishTime>10/13/2017 21:40:40</publishTime>
     </File>
     <File Include="Areas/Manage/Views/MyHome/IndexLayer.cshtml">
       <publishTime>09/09/2017 10:39:45</publishTime>
     </File>
     <File Include="Areas/Manage/Views/MyHome/Login.cshtml">
-      <publishTime>06/15/2017 17:40:03</publishTime>
+      <publishTime>10/14/2017 09:52:27</publishTime>
     </File>
     <File Include="Areas/Manage/Views/Shared/_Layout.cshtml">
       <publishTime>07/14/2017 14:01:00</publishTime>
     </File>
     <File Include="Areas/Manage/Views/Tags/Index.cshtml">
-      <publishTime>05/13/2017 15:48:09</publishTime>
+      <publishTime>10/13/2017 22:42:05</publishTime>
     </File>
     <File Include="Areas/Manage/Views/Tags/TagsAdd.cshtml">
       <publishTime>05/13/2017 15:53:22</publishTime>
@@ -102,10 +108,10 @@
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/MySiyouku.dll">
-      <publishTime>10/12/2017 15:30:55</publishTime>
+      <publishTime>10/13/2017 22:57:07</publishTime>
     </File>
     <File Include="bin/MySiyouku.pdb">
-      <publishTime>10/12/2017 15:30:55</publishTime>
+      <publishTime>10/13/2017 22:57:07</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>06/13/2016 23:06:14</publishTime>
@@ -153,19 +159,19 @@
       <publishTime>06/18/2015 20:19:46</publishTime>
     </File>
     <File Include="bin/Siyouku.Model.dll">
-      <publishTime>10/12/2017 15:30:48</publishTime>
+      <publishTime>10/13/2017 22:57:03</publishTime>
     </File>
     <File Include="bin/Siyouku.Model.dll.config">
       <publishTime>01/19/2017 16:49:11</publishTime>
     </File>
     <File Include="bin/Siyouku.Model.pdb">
-      <publishTime>10/12/2017 15:30:48</publishTime>
+      <publishTime>10/13/2017 22:57:03</publishTime>
     </File>
     <File Include="bin/Siyouku.Repositorys.dll">
-      <publishTime>10/12/2017 15:30:49</publishTime>
+      <publishTime>10/13/2017 22:57:03</publishTime>
     </File>
     <File Include="bin/Siyouku.Repositorys.pdb">
-      <publishTime>10/12/2017 15:30:49</publishTime>
+      <publishTime>10/13/2017 22:57:03</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>01/28/2015 04:02:42</publishTime>
