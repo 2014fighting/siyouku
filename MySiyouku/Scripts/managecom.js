@@ -115,7 +115,7 @@
                 },
                 data: JSON.stringify(postdata),
                 success: function (data) {
-                    console.info(data);
+                    data = JSON.parse(data);
                     if (data.Code===0) {
                         layer.msg("删除成功！!");
                         $('#'+gridid).bootstrapTable('refresh');
@@ -133,7 +133,9 @@
     wenqing.add = function (/*表单id*/formid,/*请求地址*/url,/*要关闭的url*/url1,/*要定位的url*/url2) {
         $.post(url,
             $('#' + formid).serializeArray(),
-            function(data) {
+            function (data) {
+                console.info(data);
+                data = JSON.parse(data);
                 if (data.Code === 0) {
                     layer.confirm('保存数据成功!是否返回列表页面？', {
                         btn: ['是', '否'] //按钮
@@ -155,6 +157,7 @@
         $.post(url,
             $('#' + formid).serializeArray(),
             function (data) {
+                data = JSON.parse(data);
                 if (data.Code === 0)
                     layer.confirm('保存数据成功!是否返回列表页面？', {
                         btn: ['是', '否'] //按钮

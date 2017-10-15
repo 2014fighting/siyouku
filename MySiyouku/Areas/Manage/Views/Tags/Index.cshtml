@@ -66,8 +66,8 @@
         title: '标签编号'
     }, {
         field: 'CatName',
-        title: '标签名称' 
-        
+        title: '标签名称'
+
     }, {
         field: 'CreateTime',
         title: '创建时间'
@@ -92,7 +92,7 @@
         return oTableInit;
     };
 
-    
+
     var ButtonInit = function () {
         var oInit = new Object();
         var postdata = {};
@@ -104,12 +104,13 @@
 
             $("#btn_add").click(function () {
                 //--
-                wenqing.tabadd("新增标签", '@Url.Action("TagsAdd")');
+               // wenqing.openDialog('@Url.Action("TagsAdd")','新增标签',900,300);
+               wenqing.tabadd("新增标签", '@Url.Action("TagsAdd")');
             });
-             
+
         };
 
         return oInit;
     };
-     
+
 </script>
