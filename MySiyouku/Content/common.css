@@ -155,16 +155,20 @@
     /*line-height: 36px;*/
 }
 /*.art-det-right{ position: fixed;left: 65%;top:10%}*/
-.btntag {
-    background-color: #00bfff;
+.mybtntag {
+    background-color:deepskyblue;
     margin: 5px 2px;
     float: left;
 }
-.btntag:hover {
-    background-color:chartreuse;
+.btntag {
+    padding: 5px;
+    float: left;
 }
+ .mybtntag:hover {
+        background-color: chartreuse;
+    }
 
-.btntag a {
+.mybtntag a {
     color: white !important;
     text-decoration: none;
 }
