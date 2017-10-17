@@ -48,10 +48,10 @@
       <publishTime>07/14/2017 14:01:00</publishTime>
     </File>
     <File Include="Areas/Manage/Views/Tags/Index.cshtml">
-      <publishTime>10/13/2017 22:42:05</publishTime>
+      <publishTime>10/15/2017 12:15:15</publishTime>
     </File>
     <File Include="Areas/Manage/Views/Tags/TagsAdd.cshtml">
-      <publishTime>05/13/2017 15:53:22</publishTime>
+      <publishTime>10/15/2017 12:24:30</publishTime>
     </File>
     <File Include="Areas/Manage/Views/web.config">
       <publishTime>06/02/2017 16:41:40</publishTime>
@@ -108,10 +108,10 @@
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/MySiyouku.dll">
-      <publishTime>10/13/2017 22:57:07</publishTime>
+      <publishTime>10/17/2017 14:32:01</publishTime>
     </File>
     <File Include="bin/MySiyouku.pdb">
-      <publishTime>10/13/2017 22:57:07</publishTime>
+      <publishTime>10/17/2017 14:32:01</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>06/13/2016 23:06:14</publishTime>
@@ -168,10 +168,10 @@
       <publishTime>10/13/2017 22:57:03</publishTime>
     </File>
     <File Include="bin/Siyouku.Repositorys.dll">
-      <publishTime>10/13/2017 22:57:03</publishTime>
+      <publishTime>10/17/2017 14:31:36</publishTime>
     </File>
     <File Include="bin/Siyouku.Repositorys.pdb">
-      <publishTime>10/13/2017 22:57:03</publishTime>
+      <publishTime>10/17/2017 14:31:36</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>01/28/2015 04:02:42</publishTime>
@@ -276,7 +276,7 @@
       <publishTime>07/14/2017 14:00:16</publishTime>
     </File>
     <File Include="Content/common.css">
-      <publishTime>08/31/2017 15:29:58</publishTime>
+      <publishTime>10/17/2017 14:27:47</publishTime>
     </File>
     <File Include="Content/CommonImg/20140621193541.png">
       <publishTime>01/19/2017 16:48:43</publishTime>
@@ -2208,7 +2208,7 @@
       <publishTime>01/19/2017 16:49:11</publishTime>
     </File>
     <File Include="Scripts/managecom.js">
-      <publishTime>09/15/2017 16:10:34</publishTime>
+      <publishTime>10/15/2017 12:10:48</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.6.2.js">
       <publishTime>01/19/2017 16:49:11</publishTime>
@@ -2238,13 +2238,16 @@
       <publishTime>08/26/2017 19:11:03</publishTime>
     </File>
     <File Include="Views/Home/GetLink.cshtml">
-      <publishTime>10/12/2017 14:50:19</publishTime>
+      <publishTime>10/17/2017 13:51:41</publishTime>
+    </File>
+    <File Include="Views/Home/GetTags.cshtml">
+      <publishTime>10/17/2017 14:28:51</publishTime>
     </File>
     <File Include="Views/Home/GetToP.cshtml">
-      <publishTime>07/18/2017 14:24:32</publishTime>
+      <publishTime>10/17/2017 13:54:21</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>10/12/2017 14:52:08</publishTime>
+      <publishTime>10/17/2017 14:28:06</publishTime>
     </File>
     <File Include="Views/Home/Messages.cshtml">
       <publishTime>08/26/2017 19:06:55</publishTime>
@@ -2253,7 +2256,7 @@
       <publishTime>01/19/2017 16:49:11</publishTime>
     </File>
     <File Include="Views/Home/TagList.cshtml">
-      <publishTime>10/12/2017 15:01:24</publishTime>
+      <publishTime>10/17/2017 13:51:05</publishTime>
     </File>
     <File Include="Views/Home/_ArticleList.cshtml">
       <publishTime>07/23/2017 20:42:25</publishTime>
@@ -2268,7 +2271,7 @@
       <publishTime>05/24/2017 10:50:48</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>09/08/2017 18:01:07</publishTime>
+      <publishTime>10/17/2017 14:31:14</publishTime>
     </File>
     <File Include="Views/web.config">
       <publishTime>01/19/2017 16:49:11</publishTime>

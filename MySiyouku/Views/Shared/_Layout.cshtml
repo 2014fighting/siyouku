@@ -71,7 +71,7 @@
                     @*<li><a href="@Url.Action("EnglishStudy", "Wenqing")">每日英语</a><span class="xiahua"></span></li>*@
 
                     <li><a href="@Url.Action("About", "Home")">关于本站</a><span class="xiahua"></span></li>
-                    <li><a href="@Url.Action("TagList", "Home")">热门标签</a><span class="xiahua"></span></li>
+                    @*<li><a href="@Url.Action("TagList", "Home")">热门标签</a><span class="xiahua"></span></li>*@
                     <li><a href="@Url.Action("Index", "Applet")">小程序大全</a><span class="xiahua"></span></li>
                     @*<li><a href="@Url.Action("WeTalk", "Wenqing")">大家聊</a><span class="xiahua"></span></li>*@
                     <li><a href="@Url.Action("Index", "ImgService")">我的图库</a><span class="xiahua"></span></li>
@@ -94,13 +94,14 @@
                     <div class="form-group">
                         <input id="KeyWord" type="text" name="KeyWord" class="form-control" placeholder="文章搜索">
                     </div>
-                    <button type="submit" class="btn btn-danger">搜文章</button>
+                    @*<button type="submit" class="btn btn-danger">搜文章</button>*@
                     @*<button type="button" class="btn btn-danger"  onclick="CrawlerArt();">爬取文章入库</button>*@
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="@Url.Action("Messages", "Home")"><span class="glyphicon glyphicon-pencil"></span>留言墙</a><span class="xiahua"></span></li>
                     <li class="login_in"><a href="/Manage"><span class="glyphicon glyphicon-log-in"></span>登入</a></li>
                     <li class="login_out"><a href="#"><span class="glyphicon glyphicon-user"></span>注册</a></li>
+              
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

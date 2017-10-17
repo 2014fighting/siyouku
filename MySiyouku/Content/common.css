@@ -156,10 +156,18 @@
 }
 /*.art-det-right{ position: fixed;left: 65%;top:10%}*/
 .btntag {
-    padding: 5px;
+    background-color: #00bfff;
+    margin: 5px 2px;
     float: left;
 }
+.btntag:hover {
+    background-color:chartreuse;
+}
 
+.btntag a {
+    color: white !important;
+    text-decoration: none;
+}
 .article-div {
     padding-bottom: 9px;
     padding: 15px 0;
@@ -320,4 +328,4 @@
 }
 .mylinksitem {
    padding:10px 5px;
-}
+} 

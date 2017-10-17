@@ -20,7 +20,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-9  ">
-            <div class="tagBall">
+            <div class="tagBall ">
                 @foreach (var item in Model)
                 {
                     <div class="btntag animated bounceInDown" ><a class="btn btn-primary" href="@Url.Action("Index", "Home", new {TagName = item.CatName})">@item.CatName 

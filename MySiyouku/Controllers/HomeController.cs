@@ -309,6 +309,11 @@ namespace MySiyouku.Controllers
             var x = _linksRepository.GetLinks().OrderBy(i => i.LinkSort).Take(count).ToList();
             return View(x);
         }
+        public ActionResult GetTags(int count)
+        {
 
+            var x = _tagsRepository.GetTags().OrderBy(i =>i.Id ).Take(count).ProjectTo<TagsVm>().ToList();
+            return View(x);
+        }
     }
 }

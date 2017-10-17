@@ -6,7 +6,7 @@
 @model List<Siyouku.Model.Database.Links>
 <aside class="hidden-xs mylinks">
  
-        <a href="#" class="list-group-item disabled page-header myitemhead" style="font-weight:600">【友情链接】</a>
+    <a href="#" class="list-group-item disabled page-header myitemhead" style="font-weight:600">【友情链接】<span class="glyphicon glyphicon-link pull-left"></span></a>
         @foreach (var a in Model)
         {
             <a target="_blank" href="@a.LinkUrl" class="list-group-item mylinksitem">

@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model List<MySiyouku.Models.ViewModel.TagsVm>
+
+<aside class="hidden-xs">
+    <div class="list-group" id="divtagsyun">
+        <a href="#" class="list-group-item disabled page-header myitemhead" style="font-weight: 600">【标签云】<span class="glyphicon glyphicon-tags pull-left"></span></a>
+
+        <div class="divtagsyun">
+            @foreach (var item in Model)
+            {
+                <div class="btntag animated bounceInDown">
+
+
+                    <span class="label">
+                        <a href="@Url.Action("Index", "Home", new {TagName = item.CatName})">
+                            @item.CatName (@item.ArticleCount)
+                        </a>
+                    </span>
+
+
+                </div>
+            }
+            <div class="btntag animated bounceInDown">
+                <span class="label">
+                    <a href="@Url.Action("TagList")">
+                        全部标签...
+                    </a>
+                </span>
+ 
+            </div>
+        </div>
+    </div>
+</aside>
