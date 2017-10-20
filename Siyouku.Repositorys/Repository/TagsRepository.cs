@@ -11,7 +11,11 @@ namespace Siyouku.Repositorys.Repository
 {
     public class TagsRepository : BaseReposiory<Tag>, ITagsRepository
     {
-       
+        public bool DeleteTag(int id)
+        {
+           return Delete(GetEntities(i => i.Id == id).FirstOrDefault(), false) > 0;
+        }
+
         public IQueryable<Tag> GetTags()
         {
             return GetEntities(i => true);

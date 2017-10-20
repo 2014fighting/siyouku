@@ -17,7 +17,7 @@ namespace Siyouku.Repositorys.Repository
     /// <typeparam name="T"></typeparam>
     public  class BaseReposiory<T>:IBaseRepository<T> where T : class
     {
-
+        //不应该在这里放上下文
         protected readonly SiyoukuContext SiyoukuContext;
 
         protected BaseReposiory()

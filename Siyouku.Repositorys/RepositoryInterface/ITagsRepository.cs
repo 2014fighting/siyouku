@@ -10,5 +10,6 @@ namespace Siyouku.Repositorys.RepositoryInterface
     public interface ITagsRepository
     {
         IQueryable<Tag> GetTags();
+        bool DeleteTag(int id);
     }
 }
