@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Siyouku.Repositorys.RepositoryInterface
 {
-    interface IBaseRepository<T> where T : class
+    public interface IBaseRepository<T> where T : class
     {
         T GetByKey(object key);
 

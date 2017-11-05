@@ -20,7 +20,11 @@ namespace Siyouku.Repositorys.Repository
         //不应该在这里放上下文
         protected readonly SiyoukuContext SiyoukuContext;
 
-        protected BaseReposiory()
+        public BaseReposiory(SiyoukuContext dbContext)
+        {
+            SiyoukuContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+        }
+        public BaseReposiory()
         {
             SiyoukuContext = DbFactory.GetCurrentDbContext();
         }
