@@ -41,9 +41,9 @@ namespace Siyouku.Repositorys.Repository
         /// </summary>
         /// <param name="whereLambda">lambda,查询全部直接给true</param>
         /// <returns>实体的Queryable对象</returns>
-        public IQueryable<T> GetEntities(Expression<Func<T, bool>> whereLambda)
+        public IQueryable<T> GetEntities(Expression<Func<T, bool>> whereLambda=null)
         {
-            return SiyoukuContext.Set<T>().Where(whereLambda);
+            return SiyoukuContext.Set<T>().Where(whereLambda ?? (f => true));
         }
         /// <summary>
         /// 执行sql 语句

@@ -14,7 +14,7 @@ namespace Siyouku.Repositorys.RepositoryInterface
 
         bool IsExists(int key);
 
-        IQueryable<T> GetEntities(Expression<Func<T, bool>> whereLambda);
+        IQueryable<T> GetEntities(Expression<Func<T, bool>> whereLambda=null);
 
         IQueryable<T> ExecProcGetSet(string commonText, params object[] parameters);
 
