@@ -10,8 +10,7 @@ using Siyouku.Repositorys.RepositoryInterface;
 namespace Siyouku.Repositorys
 {
     public class UnitOfWork : IUnitOfWork
-    {
-        //不应该在这里放上下文
+    { 
         protected readonly SiyoukuContext _context;
         private bool disposed = false;
         private Dictionary<Type, object> repositories;
