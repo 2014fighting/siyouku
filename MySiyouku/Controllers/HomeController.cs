@@ -95,6 +95,7 @@ namespace MySiyouku.Controllers
             _articleRepository.Commit();
             return View(result);
         }
+
         public ActionResult MyDemoAction()
         {
             var list = new List<ArticleListDto>();
