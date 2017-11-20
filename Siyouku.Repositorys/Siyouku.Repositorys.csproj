@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryInterface\IArticleRepository.cs" />
     <Compile Include="RepositoryInterface\IBaseRepository.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Repository\PictureRepository.cs" />
     <Compile Include="Repository\TagsRepository.cs" />
     <Compile Include="Repository\UserInfoRepository.cs" />
+    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Siyouku.Model\Siyouku.Model.csproj">

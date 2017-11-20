@@ -5,9 +5,10 @@
 }
 @using Webdiyer.WebControls.Mvc;
 @model IPagedList<MySiyouku.Models.ArticleListDto>
-
+
 <script type="text/javascript">
     window.onload = function () {
+    
         var dazi = document.getElementById('dazi');
         //var msg = "目前本站内容都是写爬虫采集而来，非原创，网站还在搭建中.....，不过可以在留言板给出您的建议 或意见 ，蟹蟹、<br/>—生活不止眼前的苟且,还有鼠标和键盘-_-";
 
@@ -33,23 +34,68 @@
     $(function () {
         var arr = ["label-default", "label-primary", "label-success", "label-info", "label-warning", "label-danger"];
         var el = $(".share-article li span");
-
+        var el2 = $(".divtagsyun span");
         //console.info(el);
         el.each(function (index, element) {
             var n = Math.floor(Math.random() * arr.length + 1) - 1;
             element.setAttribute('class', 'label ' + arr[n]);
         });
-
+        el2.each(function (index, element) {
+            var n = Math.floor(Math.random() * arr.length + 1) - 1;
+            element.setAttribute('class', 'label ' + arr[n]);
+        });
+ 
     });
 </script>
 
 <!--主站介绍横幅!!!!!!!!!!!! -->
-<div class="jumbotron hidden-xs">
+<div class="myjumbotron  hidden-xs">
     <div class="container">
 
-        <p id="dazi"></p>
-        @*<p><a class="btn btn-primary btn-lg" href="@Url.Action("TagList", "Wenqing")" role="button">热门标签&raquo;</a></p>*@
-    </div>
+        <div class="row-fluid">
+
+            <div class="span12">
+
+                <div class="carousel slide" id="myCarousel">
+
+                    <div class="carousel-inner">
+                    @{Html.RenderAction("GetCarousel", new { page=1,size=4 });}
+ 
+                    @{Html.RenderAction("GetCarousel", new { page=2,size=4 });}
+                    @{Html.RenderAction("GetCarousel", new { page=3,size=4 });}
+                      
+
+                    </div>
+
+                    <a data-slide="prev" href="#myCarousel" class="left carousel-control left-bj hidden-xs" id="sever-prev">
+
+                        <span id="prev-nav" class="glyphicon glyphicon-chevron-left glyphicon-triangle-left" aria-hidden="true"></span>
+
+                    </a>
+
+                    <a data-slide="next" href="#myCarousel" class="right carousel-control left-bj hidden-xs" id="sever-next">
+
+                        <span id="next-nav" class="glyphicon glyphicon-chevron-right glyphicon-triangle-right" aria-hidden="true"></span>
+
+                    </a>
+
+                    <div class="control-box hidden-lg">
+
+                        <a data-slide="prev" href="#myCarousel" class="left carousel-control left-bj">‹</a>
+
+                        <a data-slide="next" href="#myCarousel" class="right carousel-control left-bj">›</a>
+
+                    </div><!-- /.control-box -->
+
+                </div><!-- /#myCarousel -->
+
+
+            </div><!-- /.span12 -->
+
+        </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
 </div>
 <!--文章!!!-->
 <div class="container">

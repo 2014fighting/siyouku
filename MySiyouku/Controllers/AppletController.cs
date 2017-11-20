@@ -8,24 +8,26 @@ using Siyouku.Repositorys.RepositoryInterface;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MySiyouku.Models.ViewModel;
+using Siyouku.Model.Database;
+using Siyouku.Repositorys;
 
 namespace MySiyouku.Controllers
 {
     public class AppletController :BaseController
     {
-        readonly SiyoukuContext _siyoukuContext;
+        private readonly IUnitOfWork _unitOfWork;
         readonly IUserInfoRepository _userInfoRepository;
         //构造器注入
-        public AppletController(SiyoukuContext siyoukuContext, IUserInfoRepository userInfoRepository)
+        public AppletController(IUnitOfWork unitOfWork)
         {
-            _siyoukuContext = siyoukuContext;
-            _userInfoRepository = userInfoRepository;
+            _unitOfWork = unitOfWork;
         }
 
         // GET: APPlet
         public ActionResult Index(string KeyWord,string category)
         {
-            var applet = _siyoukuContext.Applet.AsQueryable();
+            var applet = _unitOfWork.GetRepository<Applet>().GetEntities();
+             
             if (!string.IsNullOrEmpty(KeyWord))
             {
                 applet = applet.Where(i => i.Name.Contains(KeyWord));
@@ -40,8 +42,8 @@ namespace MySiyouku.Controllers
 
         public ActionResult GetAppletJson(int pagesize, int pagenumber,string category)
         {
-            var list = Db.Applet.AsQueryable();
-            if(!string.IsNullOrEmpty(category)&& category != "全部")
+            var list = _unitOfWork.GetRepository<Applet>().GetEntities();
+            if (!string.IsNullOrEmpty(category)&& category != "全部")
             {
 
                 list = list.Where(i => i.CategoryName.Contains(category));

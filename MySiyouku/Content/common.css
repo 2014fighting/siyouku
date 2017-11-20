@@ -156,7 +156,7 @@
 }
 /*.art-det-right{ position: fixed;left: 65%;top:10%}*/
 .mybtntag {
-    background-color:deepskyblue;
+    /*background-color:deepskyblue;*/
     margin: 5px 2px;
     float: left;
 }
@@ -332,4 +332,217 @@
 }
 .mylinksitem {
    padding:10px 5px;
-} 
+}
+
+
+/*首页轮播样式*/
+ .row-fluid {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.row-fluid:before,
+.row-fluid:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+
+.row-fluid:after {
+    clear: both;
+}
+
+.row-fluid:before,
+.row-fluid:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+
+.row-fluid [class*="span"]:first-child {
+    margin-left: 0;
+}
+
+.row-fluid .span12 {
+    width: 100%;
+}
+
+.row-fluid [class*="span"] {
+    box-sizing: border-box;
+    display: block;
+    float: left;
+    margin-left: 2.12766%;
+    min-height: 30px;
+    width: 100%;
+}
+
+.span12 {
+    width: 940px;
+}
+
+[class*="span"] {
+    float: left;
+    margin-left: 20px;
+    min-height: 1px;
+}
+
+.thumbnails:before,
+.thumbnails:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+
+.thumbnails:after {
+    clear: both;
+}
+
+.thumbnails:before,
+.thumbnails:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+
+/*.row-fluid .thumbnails {
+        margin-left: 0;
+    }*/
+
+.thumbnails {
+    list-style: outside none none;
+    margin-left: -40px;
+}
+
+.row-fluid .span3 {
+    width: 23.4043%;
+    height:380px
+}
+/* Carousel Control */
+
+.thumbnails li {
+    background: #fff;
+    -moz-box-shadow: 3px 4px 7px #555;
+    -webkit-box-shadow: 3px 4px 7px #555;
+    box-shadow: 3px 4px 7px #555;
+}
+
+    .thumbnails li:hover {
+        background: #edf0f6;
+    }
+
+        .thumbnails li:hover .caption h4,
+        .thumbnails li:hover .caption p,
+        .thumbnails li:hover .caption span,
+        .thumbnails li:hover .caption a,
+        .thumbnails li:hover .caption a i {
+            color: #191970;
+        }
+
+.thumbnail {
+    background: no-repeat;
+    border: none;
+    border-radius: none;
+    padding: 6px;
+}
+/* Thumbnail Box */
+
+.caption {
+    padding: 0 13px;
+}
+
+    .caption h4 {
+        color: #0075b1;
+        height: 30px;
+ 
+    }
+
+    .caption p {
+        height: 140px;
+        line-height: 25px;
+        color: #444;
+        overflow: hidden
+    }
+
+.divlike span,
+.divlike a {
+    color: #666;
+    text-decoration: none;
+    
+}
+
+        .caption a i {
+            color: #0075b1;
+        }
+
+.glyphicon2 {
+    top: 3px;
+}
+
+.carousel-control {
+    background: #666;
+    border: 0px;
+    border-radius: 0px;
+    display: inline-block;
+    font-size: 34px;
+    font-weight: 200;
+    line-height: 18px;
+    opacity: 0.5;
+    padding: 4px 10px 0px;
+    height: 30px;
+    width: 15px;
+}
+
+
+
+@@media (max-width:768px) {
+
+    .row-fluid .span3 {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .carousel-control {
+        position: static;
+    }
+
+    .control-box {
+        text-align: center;
+    }
+}
+
+#sever-prev {
+    left: -120px;
+    top: 155px;
+    background: none;
+}
+
+#sever-next {
+    top: 155px;
+    right: -120px;
+    background: none;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 140px
+}
+
+.myjumbotron {
+    padding: 3px;
+    margin-bottom: 30px;
+    /* font-size: 21px; */
+    font-weight: 200;
+    line-height: 2.1428571435;
+    color: inherit;
+    background-color: powderblue;
+}
+
+.divlike {
+    width:100%;
+    height: 20px;
+    padding:0 13px 30px;
+    margin-bottom: 50px
+ 
+}
+
+/*首页轮播样式结束*/

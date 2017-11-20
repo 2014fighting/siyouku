@@ -20,7 +20,11 @@ namespace Siyouku.Repositorys.Repository
         //不应该在这里放上下文
         protected readonly SiyoukuContext SiyoukuContext;
 
-        protected BaseReposiory()
+        public BaseReposiory(SiyoukuContext dbContext)
+        {
+            SiyoukuContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+        }
+        public BaseReposiory()
         {
             SiyoukuContext = DbFactory.GetCurrentDbContext();
         }
@@ -37,9 +41,9 @@ namespace Siyouku.Repositorys.Repository
         /// </summary>
         /// <param name="whereLambda">lambda,查询全部直接给true</param>
         /// <returns>实体的Queryable对象</returns>
-        public IQueryable<T> GetEntities(Expression<Func<T, bool>> whereLambda)
+        public IQueryable<T> GetEntities(Expression<Func<T, bool>> whereLambda=null)
         {
-            return SiyoukuContext.Set<T>().Where(whereLambda);
+            return SiyoukuContext.Set<T>().Where(whereLambda ?? (f => true));
         }
         /// <summary>
         /// 执行sql 语句

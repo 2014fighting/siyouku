@@ -303,5 +303,15 @@ namespace MySiyouku.Controllers
         {
             return View();
         }
+
+        public ActionResult Daojishi()
+        {
+            return View();
+        }
+
+        public ActionResult Nav()
+        {
+            return View();
+        }
     }
 }

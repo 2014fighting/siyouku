@@ -1,0 +1,84 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>xxx倒计时</title>
+    <script src="http://siyouku.cn/Scripts/jquery-1.10.2.min.js"></script>
+    <style type="text/css">
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .timeout {
+            background-image: url('http://img.siyouku.cn/img55.jpg');
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            background-size: 100% 100%;
+            position: absolute;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://img.siyouku.cn/img55.jpg',sizingMethod='scale');
+        }
+
+        #dao {
+            width: 590px;
+            color: white;
+            margin-left: 30%;
+            margin-top: 21%;
+            font-size: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+            #dao span {
+                margin: 0 5px;
+                background: #ff3300;
+                color： #fff;
+                padding: 6px;
+                border-radius: 10px;
+            }
+    </style>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#sky-footer").hide();
+    setInterval(function(){
+      $(".endtime").each(function(){
+        var obj = $(this);
+        var endTime = new Date(parseInt(obj.attr('value')) * 1000);
+        var nowTime = new Date();
+        var nMS=endTime.getTime() - nowTime.getTime();
+        var myD=Math.floor(nMS/(1000 * 60 * 60 * 24));
+		var myH=Math.floor(nMS/(1000*60*60)) % 24; //小时
+        var myM=Math.floor(nMS/(1000*60)) % 60; //分钟
+        var myS=Math.floor(nMS/1000) % 60; //秒
+        var myMS=Math.floor(nMS/100) % 10; //拆分秒
+        if(myD>= 0){
+			var str = "<span>"+checkTime(myD)+"</span>天<span>"+checkTime(myH)+"</span>小时<span>"+checkTime(myM)+"</span>分<span>"+myS+"."+myMS+"</span>秒";
+        }else{
+			var str = "xxx正式开始！";
+		}
+		obj.html(str);
+      });
+    }, 100);
+});
+function checkTime(i){ //将0-9的数字前面加上0，例1变为01
+            if(i<10)
+            {
+                i = "0" + i;
+            }
+            return i;
+        }
+    </script>
+</head>
+
+<body class="timeout">
+
+    <div id="dao" class="endtime" value="1710529600"></div>
+</body>
+
+</html>

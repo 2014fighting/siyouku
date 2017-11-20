@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace Siyouku.Repositorys.RepositoryInterface
 {
-    interface IBaseRepository<T> where T : class
+    public interface IBaseRepository<T> where T : class
     {
         T GetByKey(object key);
 
         bool IsExists(int key);
 
-        IQueryable<T> GetEntities(Expression<Func<T, bool>> whereLambda);
+        IQueryable<T> GetEntities(Expression<Func<T, bool>> whereLambda=null);
 
         IQueryable<T> ExecProcGetSet(string commonText, params object[] parameters);
 

@@ -1,0 +1,89 @@
+﻿@{
+    Layout = null;
+}
+@model List<Siyouku.Model.Database.Article>
+    @if (ViewBag.curpage == 1)
+    {
+        <div class="item active">
+
+            <ul class="thumbnails">
+        
+                @foreach (var a in Model)
+                {
+                    <li class="span3">
+
+                        <div class="thumbnail">
+
+                            <a href="@Url.RouteUrl("article",new {id=a.Id})"><img src="@a.Img" alt="@a.Title"></a>
+
+                        </div>
+
+                        <div class="caption">
+
+                            <h4>
+                                <a href="@Url.RouteUrl("article",new {id=a.Id})">
+                                    @a.Title
+                                </a>
+                            </h4>
+
+                            <p>
+                                @a.Summary
+
+                            </p>
+                          
+
+                        </div>
+                        <div class="divlike">
+                                
+                            <span class="pull-left">@a.Pviews</span>
+
+                            <a class="pull-right " href="#"><i class="glyphicon glyphicon-heart glyphicon2"></i> @a.Pviews</a>
+                        </div>
+                    </li>
+                }
+            </ul>
+
+        </div><!-- /Slide1 -->
+    }
+    else
+    {
+        <div class="item">
+
+            <ul class="thumbnails">
+        
+                @foreach (var a in Model)
+                {
+                    <li class="span3">
+
+                        <div class="thumbnail">
+
+                            <a href="@Url.RouteUrl("article",new {id=a.Id})"><img src="@a.Img" alt="@a.Title"></a>
+                             
+                        </div>
+
+                        <div class="caption">
+                            <h4>
+                                <a href="@Url.RouteUrl("article",new {id=a.Id})">
+                                    @a.Title
+                                </a>
+                            </h4>
+                                <p>
+                                    @a.Summary
+
+                                </p>
+
+
+                            
+</div>
+                        <div class="divlike">
+                                
+                            <span class="pull-left">@a.Pviews</span>
+
+                            <a class="pull-right " href="#"><i class="glyphicon glyphicon-heart glyphicon2"></i> @a.Pviews</a>
+                        </div>
+                    </li>
+                }
+            </ul>
+
+        </div><!-- /Slide1 -->
+    }

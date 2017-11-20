@@ -923,6 +923,9 @@
     <Content Include="Views\Wenqing\Animation.cshtml" />
     <Content Include="Views\Home\GetLink.cshtml" />
     <Content Include="Views\Home\GetTags.cshtml" />
+    <Content Include="Views\Wenqing\Daojishi.cshtml" />
+    <Content Include="Views\Wenqing\Nav.cshtml" />
+    <Content Include="Views\Home\GetCarousel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

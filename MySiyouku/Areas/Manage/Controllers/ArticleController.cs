@@ -101,7 +101,7 @@ namespace MySiyouku.Areas.Manage.Controllers
                 Img = article.Img,
                 Content = article.Content,
                 PublishTime = DateTime.Now,
-                Pviews = "0",
+                Pviews =0,
                 CategoryId = article.CategoryId,
                 Summary = article.Summary,
                 UserId = CurUserInfo.UserId,

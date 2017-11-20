@@ -67,7 +67,7 @@ namespace MySiyouku.Controllers
                 CollectTime = i.CollectTime,
                 CollectUser = i.CollectUser,
                 CategoryId = i.CategoryId,
-                Pviews = i.Pviews,
+                //Pviews = i.Pviews,
                 Title = i.Title,
                 Summary = i.Summary,
                 Tags=i.Tags,
@@ -81,11 +81,8 @@ namespace MySiyouku.Controllers
         {
             var result = _articleRepository.GetArticles().FirstOrDefault(i => i.Id == id);
             if(result==null) throw new Exception("not find！！");
-            if (string.IsNullOrEmpty(result.Pviews))
-            {
-                result.Pviews = "0";
-            }
-            result.Pviews = (Convert.ToInt32(result.Pviews.Replace("万","0000"))+1).ToString();
+           
+           
             string  kw = string.Empty;
             result.Tags.ForEach(i =>
             {
@@ -95,6 +92,7 @@ namespace MySiyouku.Controllers
             _articleRepository.Commit();
             return View(result);
         }
+
         public ActionResult MyDemoAction()
         {
             var list = new List<ArticleListDto>();
@@ -144,6 +142,13 @@ namespace MySiyouku.Controllers
         public ActionResult GetToP(int count)
         {
             var x = _articleRepository.GetArticles().OrderByDescending(i => i.Pviews).Take(count).ToList();
+            return View(x);
+        }
+
+        public ActionResult GetCarousel(int page,int size)
+        {
+            ViewBag.curpage = page;
+            var x = _articleRepository.GetArticles().OrderByDescending(i => i.Pviews).Skip(size * (page-1)).Take(size).ToList();
             return View(x);
         }
         public string DownLoadImg(string url)
@@ -226,7 +231,7 @@ namespace MySiyouku.Controllers
                                 Content = GetContent(i.m_display_url),
                                 CollectTime = i.m_create_time,
                                 CollectUser = i.m_writer_name,
-                                Pviews = i.hotcount,
+                                //Pviews = i.hotcount,
                                 CollectId = i.ID,
                                 UserId = "1",
                                 PublishTime = DateTime.Now,

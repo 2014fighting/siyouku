@@ -120,6 +120,10 @@
     <Compile Include="Migrations\201710120637473_vicky14.Designer.cs">
       <DependentUpon>201710120637473_vicky14.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711200900240_vicky15.cs" />
+    <Compile Include="Migrations\201711200900240_vicky15.Designer.cs">
+      <DependentUpon>201711200900240_vicky15.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SiyoukuContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -173,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710120637473_vicky14.resx">
       <DependentUpon>201710120637473_vicky14.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711200900240_vicky15.resx">
+      <DependentUpon>201711200900240_vicky15.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

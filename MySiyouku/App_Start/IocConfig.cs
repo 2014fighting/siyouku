@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Siyouku.Model;
+using Siyouku.Repositorys;
 
 namespace MySiyouku.App_Start
 {
@@ -33,7 +34,8 @@ namespace MySiyouku.App_Start
             // builder.RegisterInstance(new SiyoukuContext()).SingleInstance();//注册单例类
             builder.RegisterInstance(DbFactory.GetCurrentDbContext()).ExternallyOwned();//将自己系统中原有的单例注册为容器托管的单例
             builder.RegisterControllers(assembly);//注册当前执行代码程序集所有controllers
-
+            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
+            
             //注册仓储层
             var repositorys = Assembly.Load("Siyouku.Repositorys");
             builder.RegisterAssemblyTypes(repositorys)

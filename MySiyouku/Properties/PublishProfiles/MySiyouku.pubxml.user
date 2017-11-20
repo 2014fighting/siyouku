@@ -108,10 +108,10 @@
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/MySiyouku.dll">
-      <publishTime>10/17/2017 14:32:01</publishTime>
+      <publishTime>11/20/2017 17:07:12</publishTime>
     </File>
     <File Include="bin/MySiyouku.pdb">
-      <publishTime>10/17/2017 14:32:01</publishTime>
+      <publishTime>11/20/2017 17:07:12</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>06/13/2016 23:06:14</publishTime>
@@ -159,19 +159,19 @@
       <publishTime>06/18/2015 20:19:46</publishTime>
     </File>
     <File Include="bin/Siyouku.Model.dll">
-      <publishTime>10/13/2017 22:57:03</publishTime>
+      <publishTime>11/20/2017 17:07:08</publishTime>
     </File>
     <File Include="bin/Siyouku.Model.dll.config">
       <publishTime>01/19/2017 16:49:11</publishTime>
     </File>
     <File Include="bin/Siyouku.Model.pdb">
-      <publishTime>10/13/2017 22:57:03</publishTime>
+      <publishTime>11/20/2017 17:07:08</publishTime>
     </File>
     <File Include="bin/Siyouku.Repositorys.dll">
-      <publishTime>10/17/2017 14:31:36</publishTime>
+      <publishTime>11/20/2017 17:07:08</publishTime>
     </File>
     <File Include="bin/Siyouku.Repositorys.pdb">
-      <publishTime>10/17/2017 14:31:36</publishTime>
+      <publishTime>11/20/2017 17:07:08</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>01/28/2015 04:02:42</publishTime>
@@ -276,7 +276,7 @@
       <publishTime>07/14/2017 14:00:16</publishTime>
     </File>
     <File Include="Content/common.css">
-      <publishTime>10/17/2017 15:20:08</publishTime>
+      <publishTime>11/20/2017 17:06:22</publishTime>
     </File>
     <File Include="Content/CommonImg/20140621193541.png">
       <publishTime>01/19/2017 16:48:43</publishTime>
@@ -2229,13 +2229,16 @@
       <publishTime>07/10/2017 11:52:22</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>09/17/2017 22:16:23</publishTime>
+      <publishTime>10/23/2017 10:21:47</publishTime>
     </File>
     <File Include="Views/Home/Chat.cshtml">
       <publishTime>01/19/2017 16:49:11</publishTime>
     </File>
     <File Include="Views/Home/Detail.cshtml">
       <publishTime>08/26/2017 19:11:03</publishTime>
+    </File>
+    <File Include="Views/Home/GetCarousel.cshtml">
+      <publishTime>11/20/2017 16:49:35</publishTime>
     </File>
     <File Include="Views/Home/GetLink.cshtml">
       <publishTime>10/17/2017 13:51:41</publishTime>
@@ -2247,13 +2250,13 @@
       <publishTime>10/17/2017 13:54:21</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>10/17/2017 14:28:06</publishTime>
+      <publishTime>11/20/2017 16:01:34</publishTime>
     </File>
     <File Include="Views/Home/Messages.cshtml">
       <publishTime>08/26/2017 19:06:55</publishTime>
     </File>
     <File Include="Views/Home/MyDemoAction.cshtml">
-      <publishTime>01/19/2017 16:49:11</publishTime>
+      <publishTime>11/11/2017 15:37:01</publishTime>
     </File>
     <File Include="Views/Home/TagList.cshtml">
       <publishTime>10/17/2017 13:51:05</publishTime>
@@ -2280,7 +2283,10 @@
       <publishTime>08/19/2017 16:18:26</publishTime>
     </File>
     <File Include="Views/Wenqing/Animation.cshtml">
-      <publishTime>09/01/2017 16:39:09</publishTime>
+      <publishTime>11/11/2017 15:36:47</publishTime>
+    </File>
+    <File Include="Views/Wenqing/Daojishi.cshtml">
+      <publishTime>11/11/2017 15:33:16</publishTime>
     </File>
     <File Include="Views/Wenqing/Daziji.cshtml">
       <publishTime>01/19/2017 16:49:11</publishTime>
@@ -2303,6 +2309,9 @@
     <File Include="Views/Wenqing/MyInfo.cshtml">
       <publishTime>08/18/2017 16:33:27</publishTime>
     </File>
+    <File Include="Views/Wenqing/Nav.cshtml">
+      <publishTime>11/11/2017 15:36:59</publishTime>
+    </File>
     <File Include="Views/Wenqing/TagList.cshtml">
       <publishTime>06/27/2017 09:57:27</publishTime>
     </File>
@@ -2316,7 +2325,7 @@
       <publishTime>01/19/2017 16:49:11</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/12/2017 11:35:34</publishTime>
+      <publishTime>11/20/2017 17:07:30</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -45,7 +45,7 @@ namespace Siyouku.Model.Database
         /// <summary>
         /// 浏览量
         /// </summary>
-        public string Pviews { get; set; }
+        public int? Pviews { get; set; }
 
         /// <summary>
         /// 文章类别
