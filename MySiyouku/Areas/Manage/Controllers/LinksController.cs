@@ -54,6 +54,8 @@ namespace MySiyouku.Areas.Manage.Controllers
         }
         public ActionResult LinksAdd(LinksDetail link)
         {
+            var maxsort = _unitOfWork.GetRepository<Links>().GetEntities().OrderByDescending(i => i.LinkSort)
+                .FirstOrDefault();
             if (!ModelState.IsValid)
             {
                 return View(link);
@@ -62,7 +64,7 @@ namespace MySiyouku.Areas.Manage.Controllers
             {
                 CreateTime = new DateTime?(),
                 LinkName = link.LinkName,
-                LinkSort = 1,
+                LinkSort = maxsort?.LinkSort + 1 ?? 1,
                 LinkUrl = link.LinkUrl,
                 LinkImg = link.LinkImg
             });
