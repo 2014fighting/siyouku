@@ -16,8 +16,7 @@ namespace Siyouku.Repositorys.Repository
 
         public void DeleteUser(string userId)
         {
-            Delete(SiyoukuContext.UserInfos.Find(userId),false);
-            Commit();
+            Delete(SiyoukuContext.UserInfos.Find(userId));
         }
 
      

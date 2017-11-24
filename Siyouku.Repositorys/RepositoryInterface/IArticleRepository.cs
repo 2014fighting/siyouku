@@ -12,7 +12,5 @@ namespace Siyouku.Repositorys.RepositoryInterface
         IQueryable<Article> GetArticles();
         bool InsertArt(Article artInfo);
         bool DeleteArt(int artId);
-        bool Commit();
-        Task<int> CommitSync();
     }
 }

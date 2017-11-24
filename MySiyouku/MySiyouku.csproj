@@ -851,6 +851,7 @@
     <Compile Include="Areas\Manage\Models\ArticleDetail.cs" />
     <Compile Include="Areas\Manage\Models\Common\CustomJsonResult.cs" />
     <Compile Include="Areas\Manage\Models\JsonResult.cs" />
+    <Compile Include="Areas\Manage\Models\LinksDetail.cs" />
     <Compile Include="Areas\Manage\Models\SelectsModel.cs" />
     <Compile Include="Content\UEditor\net\App_Code\Config.cs" />
     <Compile Include="Content\UEditor\net\App_Code\ConfigHandler.cs" />

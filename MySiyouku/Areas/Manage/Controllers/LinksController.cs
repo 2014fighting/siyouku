@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using MySiyouku.Areas.Manage.Models;
 using Siyouku.Model.Database;
 using Siyouku.Repositorys;
 using Siyouku.Repositorys.RepositoryInterface;
@@ -51,18 +52,43 @@ namespace MySiyouku.Areas.Manage.Controllers
 
             return MyJson(new { total, rows }, JsonRequestBehavior.AllowGet);
         }
-        public ActionResult LinksAdd()
+        public ActionResult LinksAdd(LinksDetail link)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(link);
+            }
             _unitOfWork.GetRepository<Links>().Add(new Links
             {
                 CreateTime = new DateTime?(),
-                LinkName = "ceshi",
+                LinkName = link.LinkName,
                 LinkSort = 1,
-                LinkUrl = "www.baidu.com",
-                LinkImg = "url"
-            }, false);
-            _unitOfWork.SaveChanges();
-            return View();
+                LinkUrl = link.LinkUrl,
+                LinkImg = link.LinkImg
+            });
+            var r =   _unitOfWork.SaveChanges() > 0;
+             
+            return Json(new ManageJsonResult
+            {
+                Code = r ? 0 : 1,
+                Msg = r ? "ok" : "SaveChanges失败！"
+            });
+        }
+
+        public ActionResult LinkDelete(List<int> ids)
+        {
+            var links = _unitOfWork.GetRepository<Links>();
+            ids.ForEach(i =>
+            {
+                links.Delete(links.GetEntities(x => x.Id == i));
+            });
+            var r = _unitOfWork.SaveChanges() > 0;
+
+            return Json(new ManageJsonResult
+            {
+                Code = r ? 0 : 1,
+                Msg = r ? "ok" : "SaveChanges失败！"
+            });
         }
 
     }

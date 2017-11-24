@@ -4,5 +4,95 @@
     Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
 }
 
-<h2>LinksAdd</h2>
+@model MySiyouku.Areas.Manage.Models.LinksDetail
+    
+<script src="~/Content/UEditor/ueditor.config.js"></script>
+<script src="~/Content/UEditor/ueditor.all.js"></script>
+<script type="text/javascript">
 
+    var editortemp = UE.getEditor('temparea');
+
+    editortemp.ready(function () {
+        this.hide();//隐藏编辑器
+        this.addListener('beforeInsertImage',
+            function (t, arg) {
+                $("#LinkImg").val(arg[0].src);
+                return;
+                //alert('这是图片地址：' + arg[0].src);
+            });
+
+        this.addListener('afterUpfile', function (t, arg) {
+            alert('这是文件地址：' + arg[0].url);
+        });
+    });
+
+    //弹出图片上传的对话框
+    function upImage() {
+        var myImage = editortemp.getDialog("insertimage");
+        myImage.open();
+    }
+
+
+    function sumbit() {
+        
+        if (!$('#LinkName').val()) {
+            layer.msg("链接名称必填！"); return;
+        }
+    
+        if (!$('#LinkUrl').val()) {
+            layer.msg("链接地址！"); return;
+        }
+        if (!$('#LinkImg').val()) {
+            layer.msg("图片必须上次！"); return;
+        }
+        
+        wenqing.add('comform', '@Url.Action("LinksAdd")', '@Url.Action("LinksAdd")', '@Url.Action("Index")');
+    }
+</script>
+<form class="form-horizontal comform" id="comform">
+
+
+    <div class="form-group">
+        @Html.LabelFor(i => i.LinkName, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.TextBoxFor(i => i.LinkName, new { @class = "form-control", required = "required", placeholder = "链接名称" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(i => i.LinkUrl, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            @Html.TextBoxFor(i => i.LinkUrl, new { @class = "form-control", placeholder = "链接地址" })
+        </div>
+    </div>
+   
+    
+    <div class="form-group">
+        @Html.LabelFor(i => i.LinkImg, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-8">
+            <textarea id="temparea"></textarea>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" onclick="upImage();" type="button">上次图片</button>
+                </span>
+                @Html.TextBoxFor(i => i.LinkImg, new { @class = "form-control", placeholder = "请上次图片" })
+            </div>
+        </div>
+
+
+    </div>
+   
+
+
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+
+        <div class="col-sm-8">
+            <button type="button" class="btn btn-primary" onclick="sumbit();">提交</button>
+
+            <button type="button" class="btn btn-primary" onclick="wenqing.tabclose('@Url.Action("LinksAdd")', '@Url.Action("Index")')">返回</button>
+        </div>
+
+    </div>
+
+</form>

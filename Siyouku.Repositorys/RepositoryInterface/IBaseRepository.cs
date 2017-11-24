@@ -18,13 +18,12 @@ namespace Siyouku.Repositorys.RepositoryInterface
 
         IQueryable<T> ExecProcGetSet(string commonText, params object[] parameters);
 
-        int Add(T entity, bool isSave);
-        int Update(T entity, bool isSave);
+        int Add(T entity, bool isSave=false);
+        int Update(T entity, bool isSave=false);
 
-        int Delete(T entity, bool isSave);
-        int Delete(IEnumerable<T> entities);
+        int Delete(T entity, bool isSave=false);
 
-        bool Commit();
-        Task<int> CommitSync();
+        int Delete(IEnumerable<T> entities, bool isSave = false);
+ 
     }
 }

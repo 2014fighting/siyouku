@@ -16,18 +16,16 @@ namespace Siyouku.Repositorys.Repository
         {
             return GetEntities(i => true);
         }
-
-       
-
+ 
         bool IArticleRepository.DeleteArt(int artId)
         {
-          return  Delete(GetEntities(i => i.Id == artId).FirstOrDefault(),false)>0;
+          return  Delete(GetEntities(i => i.Id == artId).FirstOrDefault())>0;
         }
 
        
         bool IArticleRepository.InsertArt(Article artInfo)
         {
-           return Add(artInfo, false)>0;
+           return Add(artInfo)>0;
         }
     }
 }

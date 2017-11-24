@@ -13,7 +13,7 @@ namespace Siyouku.Repositorys.Repository
     {
         public bool DeleteTag(int id)
         {
-           return Delete(GetEntities(i => i.Id == id).FirstOrDefault(), false) > 0;
+           return Delete(GetEntities(i => i.Id == id).FirstOrDefault()) > 0;
         }
 
         public IQueryable<Tag> GetTags()

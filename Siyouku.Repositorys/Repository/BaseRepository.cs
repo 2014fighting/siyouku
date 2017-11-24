@@ -57,12 +57,12 @@ namespace Siyouku.Repositorys.Repository
             return tempList.AsQueryable();
         }
 
-        public int Add(T entity, bool isSave=true)
+        public int Add(T entity, bool isSave=false)
         {
             SiyoukuContext.Set<T>().Add(entity);
             return isSave ? SiyoukuContext.SaveChanges() : 0;
         }
-        public int Update(T entity, bool isSave=true)
+        public int Update(T entity, bool isSave=false)
         {
             SiyoukuContext.Set<T>().Attach(entity);
             SiyoukuContext.Entry<T>(entity).State = EntityState.Modified;
@@ -75,7 +75,7 @@ namespace Siyouku.Repositorys.Repository
         /// <param name="entity">实体</param>
         /// <param name="isSave">是否立即保存</param>
         /// <returns>在“isSave”为True时返回受影响的对象的数目，为False时直接返回0</returns>
-        public int Delete(T entity, bool isSave=true)
+        public int Delete(T entity, bool isSave=false)
         {
             SiyoukuContext.Set<T>().Remove(entity);
             return isSave ? SiyoukuContext.SaveChanges() : 0;
@@ -85,21 +85,14 @@ namespace Siyouku.Repositorys.Repository
         /// 批量删除实体
         /// </summary>
         /// <param name="entities">实体集合</param>
+        /// <param name="isSave"></param>
         /// <returns>受影响的对象的数目</returns>
-        public int Delete(IEnumerable<T> entities)
+        public int Delete(IEnumerable<T> entities, bool isSave = false)
         {
             SiyoukuContext.Set<T>().RemoveRange(entities);
-            return SiyoukuContext.SaveChanges();
+            return isSave?SiyoukuContext.SaveChanges():0;
         }
 
-        public bool Commit()
-        {
-             return SiyoukuContext.SaveChanges()>0;
-        }
-
-        public async Task<int> CommitSync()
-        {
-            return await SiyoukuContext.SaveChangesAsync();
-        }
+ 
     }
 }

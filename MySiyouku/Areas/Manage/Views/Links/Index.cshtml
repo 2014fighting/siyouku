@@ -4,7 +4,7 @@
 }
 
 <div id="toolbar" class="btn-group">
-    <button id="btn_add" type="button" class="btn btn-primary btn-sm" onclick="wenqing.openDialog('@Url.Action("LinksAdd")','新增友情链接',900,300);">
+    <button id="btn_add" type="button" class="btn btn-primary btn-sm" onclick="wenqing.tabadd('新增友情链接','@Url.Action("LinksAdd")');">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
     </button>
 
@@ -92,12 +92,12 @@
 
         oInit.Init = function () {
             $("#btn_delete").click(function () {
-               // wenqing.delete('@Url.Action("TagsDelete")', 'tb_departments');
+               wenqing.delete('@Url.Action("LinkDelete")', 'tb_departments');
             });
 
             $("#btn_add").click(function () {
                 //--
-                //wenqing.tabadd("新增标签", '@Url.Action("TagsAdd")');
+                //wenqing.tabadd("新增标签", '@Url.Action("LinksAdd")');
             });
 
         };

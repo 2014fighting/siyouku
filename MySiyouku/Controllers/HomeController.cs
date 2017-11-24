@@ -20,6 +20,7 @@ using System.Diagnostics;
 using AutoMapper.QueryableExtensions;
 using MySiyouku.Models.ViewModel;
 using Siyouku.Model;
+using Siyouku.Repositorys;
 using Siyouku.Repositorys.Repository;
 using Siyouku.Repositorys.RepositoryInterface;
 
@@ -31,16 +32,19 @@ namespace MySiyouku.Controllers
         readonly ITagsRepository _tagsRepository;
         readonly IArticleRepository _articleRepository;
         private readonly ILinksRepository _linksRepository;
-        
+        private readonly IUnitOfWork _unitOfWork;
 
         //构造器注入
-        public HomeController(IUserInfoRepository userInfoRepository,ITagsRepository tagsRepository, IArticleRepository articleRepository, ILinksRepository linksRepository)
+        public HomeController(IUserInfoRepository userInfoRepository,
+            ITagsRepository tagsRepository,
+            IArticleRepository articleRepository,
+            ILinksRepository linksRepository, IUnitOfWork unitOfWork)
         {
             _userInfoRepository = userInfoRepository;
             _tagsRepository = tagsRepository;
             _articleRepository = articleRepository;  
                 _linksRepository =linksRepository;
-
+            _unitOfWork = unitOfWork;
         }
 
         // GET: Home
@@ -89,7 +93,7 @@ namespace MySiyouku.Controllers
                 kw = kw+ ","+i.CatName;
             });
             ViewBag.Keywords = kw.Trim(',');
-            _articleRepository.Commit();
+            _unitOfWork.SaveChanges();
             return View(result);
         }
 

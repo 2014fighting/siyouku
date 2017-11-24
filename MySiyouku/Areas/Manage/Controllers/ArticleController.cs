@@ -11,23 +11,27 @@ using AutoMapper.QueryableExtensions;
 using Microsoft.Owin.Security.Provider;
 using MySiyouku.Models;
 using Siyouku.Model.Database;
+using Siyouku.Repositorys;
 using Siyouku.Repositorys.RepositoryInterface;
 
 namespace MySiyouku.Areas.Manage.Controllers
 {
     public class ArticleController : BaseController
     {
+        private readonly IUnitOfWork _unitOfWork;
         readonly IUserInfoRepository _userInfoRepository;
         readonly ITagsRepository _tagsRepository;
         readonly IArticleRepository _articleRepository;
 
         //构造器注入
-        public ArticleController(IUserInfoRepository userInfoRepository, ITagsRepository tagsRepository, IArticleRepository articleRepository)
+        public ArticleController(IUserInfoRepository userInfoRepository,
+            ITagsRepository tagsRepository,
+            IArticleRepository articleRepository, IUnitOfWork unitOfWork)
         {
             _userInfoRepository = userInfoRepository;
             _tagsRepository = tagsRepository;
             _articleRepository = articleRepository;
-
+            _unitOfWork = unitOfWork;
         }
         // GET: Manage/Article
         public ActionResult Index()
@@ -111,7 +115,7 @@ namespace MySiyouku.Areas.Manage.Controllers
 
             });
             
-            var r =await _articleRepository.CommitSync()>0;
+            var r =await _unitOfWork.SaveChangesAsync()>0;
            
            
             return Json(new ManageJsonResult()
@@ -180,7 +184,7 @@ namespace MySiyouku.Areas.Manage.Controllers
             tempart.Tags = lisTags;
             tempart.LastMdifyTime=DateTime.Now;
 
-             var r = await _articleRepository.CommitSync()> 0;
+             var r = await _unitOfWork.SaveChangesAsync()> 0;
 
             return Json(new ManageJsonResult()
             {
@@ -194,7 +198,7 @@ namespace MySiyouku.Areas.Manage.Controllers
             {
                 _articleRepository.DeleteArt(i);
             });
-            var r=_articleRepository.Commit();
+            var r= _unitOfWork.SaveChanges()>0;
  
             return Json(new ManageJsonResult()
             {
