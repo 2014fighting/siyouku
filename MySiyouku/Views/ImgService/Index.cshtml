@@ -27,7 +27,7 @@
     .showImg {
         display: none;
         position: absolute;
-        top: 100px;
+        top: 50%;
         left: 365px;
         width: 820px;
         height: 512px;
@@ -57,9 +57,11 @@
         }
 </style>
 <script type="text/javascript">
+    ///layer 预览
     $(function () {
         waterallowData(pagenum);
-        inint();
+       // inint();
+        viewImg();
         $("#sky-footer").hide();
     });
     var pagenum = 1;
@@ -182,8 +184,26 @@
 
             });
     }
- 
-   
+
+
+    function viewImg() {
+       
+        $("#waterFallColumn").on("click", ".pic_d", function () {
+            var bigSrc = $(this).find("img").attr("src");
+            $(".myimg img.mybigImg").attr("src", bigSrc);
+            console.info(bigSrc);
+        
+            layer.open({
+                type: 1,
+                title: false,
+                closeBtn: 0,
+                area: '516px',
+                skin: 'layui-layer-nobg', //没有背景色
+                shadeClose: true,
+                content: $(".myimg")
+            });
+        });
+    }
 </script>
 
 
@@ -197,6 +217,11 @@
         <img src="http://img.siyouku.cn/img34.jpg" class="prev">
         <img src="http://img.siyouku.cn/img33.jpg" class="next">
         <img src="http://cdn.attach.qdfuns.com/notes/pics/201708/28/152247enooreornrre1zca.jpg" class="bigImg">
+    </div>
+    
+    <div class="myimg" style="display: none">
+        <img src="http://cdn.attach.qdfuns.com/notes/pics/201708/28/152247enooreornrre1zca.jpg"
+             class="mybigImg">
     </div>
 </div>
 
