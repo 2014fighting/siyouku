@@ -58,24 +58,25 @@
 </style>
 <script type="text/javascript">
     $(function () {
-        waterallowData(1);
+        waterallowData(pagenum);
         inint();
         $("#sky-footer").hide();
     });
-    var pagenum = 3;
+    var pagenum = 1;
     $(window).on('scroll',
         function () {
             var viewH = $(this).height();//可见高度
             var scrollTop = $(this).scrollTop();//滚动高度
-            console.info(viewH);
-            console.info(scrollTop);
+            //console.info(viewH);
+            //console.info(scrollTop);
             if (uiIsPageBottom()) {
                 //var ii= layer.msg('数据加载中...', {
                 //     icon: 16
                 //});
-                waterallowData(pagenum);
-
                 pagenum++;
+                waterallowData(pagenum);
+              
+              
             }
 
         });
@@ -83,13 +84,13 @@
     function waterallowData(pagenum, ii) {
         // console.info(pagenum);
 
-        var params = { size: 150, page: pagenum }
+        var params = { size:30, page: pagenum }
         $.ajax({
             url: '@Url.Action("GetAllPic")',
             type: "get",
             data: params,
             success: function (data, textStatus) {
-                console.info(data);
+                //console.info(data);
                 data = JSON.parse(data);
                 if (textStatus == "success" && data.rows.length > 0) {
                     //console.info(data);
@@ -100,12 +101,14 @@
                     }
                 }
                 //layer.close(ii);
+                console.info(pagenum);
+              
             }
         });
     }
     // 描 述：判断是滚动到页面底部
     function uiIsPageBottom() {
-
+     
         var scrollTop = 0;
         var clientHeight = 0;
         var scrollHeight = 0;
@@ -122,7 +125,7 @@
         // 知识点：Math.max 比较大小，取最大值返回
         scrollHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
         var tempx = Math.round(scrollTop) + clientHeight;
-        if (tempx == scrollHeight) {
+        if (tempx == scrollHeight || tempx == (scrollHeight - 1)) {
             return true;
         } else {
             return false;
