@@ -187,21 +187,30 @@
 
 
     function viewImg() {
-       
+        var w = 0;
+      
         $("#waterFallColumn").on("click", ".pic_d", function () {
             var bigSrc = $(this).find("img").attr("src");
             $(".myimg img.mybigImg").attr("src", bigSrc);
             console.info(bigSrc);
+           
+            var img = new Image(); 
+            img.src = bigSrc; 
+            img.onload = function () {
+                var w = img.width > 1000 ? 1000 : img.width;
+                console.info(w);
+                layer.open({
+                    type: 1,
+                    title: false,
+                    closeBtn: 1,
+                    area: w+'px',
+                    skin: 'layui-layer-nobg', //没有背景色
+                    shadeClose: true,
+                    content: $(".myimg")
+                });
+            };
+ 
         
-            layer.open({
-                type: 1,
-                title: false,
-                closeBtn: 0,
-                area: '516px',
-                skin: 'layui-layer-nobg', //没有背景色
-                shadeClose: true,
-                content: $(".myimg")
-            });
         });
     }
 </script>
