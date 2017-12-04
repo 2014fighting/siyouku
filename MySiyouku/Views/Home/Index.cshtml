@@ -5,7 +5,9 @@
 }
 @using Webdiyer.WebControls.Mvc;
 @model IPagedList<MySiyouku.Models.ArticleListDto>
-
+
+
+
 <script type="text/javascript">
     window.onload = function () {
     
@@ -32,6 +34,7 @@
     }
 
     $(function () {
+        $('.carousel').carousel();
         var arr = ["label-default", "label-primary", "label-success", "label-info", "label-warning", "label-danger"];
         var el = $(".share-article li span");
         var el2 = $(".divtagsyun span");
