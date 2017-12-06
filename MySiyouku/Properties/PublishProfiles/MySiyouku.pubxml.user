@@ -2229,13 +2229,13 @@
       <publishTime>07/10/2017 11:52:22</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>10/23/2017 10:21:47</publishTime>
+      <publishTime>12/05/2017 21:36:45</publishTime>
     </File>
     <File Include="Views/Home/Chat.cshtml">
       <publishTime>01/19/2017 16:49:11</publishTime>
     </File>
     <File Include="Views/Home/Detail.cshtml">
-      <publishTime>08/26/2017 19:11:03</publishTime>
+      <publishTime>12/04/2017 09:19:32</publishTime>
     </File>
     <File Include="Views/Home/GetCarousel.cshtml">
       <publishTime>11/20/2017 16:49:35</publishTime>
