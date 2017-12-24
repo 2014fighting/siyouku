@@ -21,8 +21,17 @@ namespace MySiyouku.App_Start
                 cfg.CreateMap<Article, ArticleDetail>().ForMember(d=>d.Tags,otp=>otp.Ignore());
                 cfg.CreateMap<Applet, AppletVm>();
                 cfg.CreateMap<Picture, PictureVm>();
-                cfg.CreateMap<Tag, TagsVm>().ForMember(d=>d.ArticleCount,otp=>otp.MapFrom(i=>i.ListArticle.Count));
-                cfg.CreateMap<Tag, SelectsModel>().ForMember(d=>d.name,otp=>otp.MapFrom(i=>i.CatName));
+                cfg.CreateMap<Links, LinksDetail>();
+                cfg.CreateMap<LinksDetail, Links>()
+                    .ForMember(d => d.LinkSort, otp => otp.Ignore())
+                    .ForMember(d => d.CreateTime, otp => otp.Ignore())
+                    .ForMember(d => d.CreateUser, otp => otp.Ignore())
+                    .ForMember(d => d.UpdateTime, otp => otp.Ignore())
+                    .ForMember(d => d.UpdateUser, otp => otp.Ignore());
+                cfg.CreateMap<Tag, TagsVm>().
+                ForMember(d=>d.ArticleCount,otp=>otp.MapFrom(i=>i.ListArticle.Count));
+                cfg.CreateMap<Tag, SelectsModel>().
+                ForMember(d=>d.name,otp=>otp.MapFrom(i=>i.CatName));
             });
 
           

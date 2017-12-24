@@ -697,6 +697,7 @@
     <Content Include="Content\bootstrap-select.css.map" />
     <Content Include="Areas\Manage\Views\Links\Index.cshtml" />
     <Content Include="Areas\Manage\Views\Links\LinksAdd.cshtml" />
+    <Content Include="Areas\Manage\Views\Links\LinkEdit.cshtml" />
     <None Include="Properties\PublishProfiles\MySiyouku.pubxml" />
     <None Include="Properties\PublishProfiles\xxx.pubxml" />
     <Content Include="Scripts\bootstrap-select.js.map" />
