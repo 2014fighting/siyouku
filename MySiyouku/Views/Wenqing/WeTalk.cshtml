@@ -14,10 +14,11 @@
     }
 
     #box {
-        width: 1000px;
-        margin: 50px auto;
+        /*width: 1000px;*/
+        margin: 50px auto 0 auto;
         border: 1px solid #000000;
         position: relative;
+        background-color:#000000
     }
 
     #main {
@@ -66,7 +67,7 @@
 </div>
 
 <script type="text/javascript">
-
+    $(function() { $("#sky-footer").hide(); });
     // 引用自动生成的集线器代理
     var chat = $.connection.serverHub;
     // 定义服务器端调用的客户端sendMessage来显示新消息
@@ -91,7 +92,6 @@
         var encodedValue = $('<div />').text(value).html();
         return encodedValue;
     }
-
 
         var pageH=parseInt($("#main").height());
         var colorArr = ["#cfaf12", "#12af01", "#981234", "#adefsa", "#db6be4", "#f5264c", "#d34a74"];
