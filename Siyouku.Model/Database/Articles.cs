@@ -81,5 +81,7 @@ namespace Siyouku.Model.Database
         /// 标签
         /// </summary>
         public virtual List<Tag> Tags { get; set; }
+
+        public bool IsShow { get; set; } = true;
     }
 }

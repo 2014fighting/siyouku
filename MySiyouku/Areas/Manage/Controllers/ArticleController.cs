@@ -42,7 +42,7 @@ namespace MySiyouku.Areas.Manage.Controllers
 
         public ActionResult GetArticleJson(int limit, int offset, string departmentname, string statu,string search)
         {
-            var listRes=_articleRepository.GetArticles().AsQueryable();
+            var listRes = _unitOfWork.GetRepository<Article>().GetEntities();
             if (!string.IsNullOrEmpty(search))
                 listRes = listRes.Where(i => i.Title.Contains(search));
             var total = listRes.Count();
@@ -101,6 +101,7 @@ namespace MySiyouku.Areas.Manage.Controllers
             #endregion
             _articleRepository.InsertArt(new Article
             {
+                IsShow =true,
                 Title = article.Title,
                 Img = article.Img,
                 Content = article.Content,
@@ -206,7 +207,25 @@ namespace MySiyouku.Areas.Manage.Controllers
                 Msg = r? "ok" : "SaveChanges失败！"
             });
         }
-         
+        public ActionResult ShowOrHide(List<int> ids,bool isShow)
+        {
+            var article = _unitOfWork.GetRepository<Article>();
+
+            ids.ForEach(i =>
+            {
+                var firstOrDefault = article.GetEntities().FirstOrDefault(x => x.Id == i);
+                if(firstOrDefault!=null)
+                firstOrDefault.IsShow = isShow;
+                _unitOfWork.SaveChanges();
+            });
+            
+            return Json(new ManageJsonResult()
+            {
+                Code =0,
+                Msg =  "ok"
+            });
+        }
+
         public ActionResult GetListjson()
         {
             var lstRes = _tagsRepository.GetTags().AsQueryable();

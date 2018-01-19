@@ -39,6 +39,12 @@
     <button id="btn_delete" type="button" class="btn btn-danger btn-sm">
         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
     </button>
+    <button id="btn_show" type="button" class="btn btn-default btn-sm">
+        <span class="glyphicon glyphicon-adjust" aria-hidden="true"></span>上架
+    </button>
+    <button id="btn_hide" type="button" class="btn btn-default btn-sm">
+        <span class="glyphicon glyphicon-adjust" aria-hidden="true"></span>下架
+    </button>
     <button id="btn_craw" type="button" class="btn btn-default btn-sm" onclick="CrawlerArt();">
         <span class="glyphicon glyphicon-adjust" aria-hidden="true"></span>爬取文章入库
     </button>
@@ -144,7 +150,86 @@
                 //--
                 wenqing.tabadd("添加文章", '@Url.Action("ArticleAdd")');
             });
+            $("#btn_hide").click(function () {
+                var selRows = $('#tb_departments').bootstrapTable('getSelections');
+                if (selRows.length == 0) {
+                    layer.msg('请选择要操作的数据!');
+                    return;
+                };
+                layer.confirm('确定要设置下架该文章？？', {
+                    btn: ['是滴！', '不点错了！'] //按钮
+                }, function () {
+                    var postdata = [];
+                    for (var i = 0; i < selRows.length; i++) {
+                        postdata.push(selRows[i].Id);
+                    };
+                    $.ajax({
+                        type: "post",
+                        url: '@Url.Action("ShowOrHide")/?isShow=false',
+                        contentType: "application/json;charset=UTF-8",
+                        beforeSend: function () {//等待效果
+                            //CreateWaitDiv();
+                        },
+                        complete: function () {//去除等待效果
+                            //RemoveWaitDiv();
+                        },
+                        data: JSON.stringify(postdata),
+                        success: function (data) {
+                            data = JSON.parse(data);
+                            if (data.Code===0) {
+                                layer.msg("设置成功！!");
+                                $('#tb_departments').bootstrapTable('refresh');
+                            } else {
+                                layer.msg(data.Msg);
+                            }
+                        },
+                        error: function (xhr, a, b) { alert(xhr.responseText); }
+                    });
+                }, function () {
+                    //点错了
+                });
+            });
 
+            $("#btn_show").click(function () {
+                var selRows = $('#tb_departments').bootstrapTable('getSelections');
+                if (selRows.length == 0) {
+                    layer.msg('请选择要操作的数据!');
+                    return;
+                };
+                layer.confirm('确定要上线该文章？？', {
+                    btn: ['是滴！', '不点错了！'] //按钮
+                }, function () {
+                    var postdata = [];
+                    for (var i = 0; i < selRows.length; i++) {
+                        postdata.push(selRows[i].Id);
+                    };
+                    $.ajax({
+                        type: "post",
+                        url: '@Url.Action("ShowOrHide")/?isShow=true',
+                        contentType: "application/json;charset=UTF-8",
+                        beforeSend: function () {//等待效果
+                            //CreateWaitDiv();
+                        },
+                        complete: function () {//去除等待效果
+                            //RemoveWaitDiv();
+                        },
+                        data: JSON.stringify(postdata),
+                        success: function (data) {
+                            data = JSON.parse(data);
+                            if (data.Code===0) {
+                                layer.msg("设置成功！!");
+                                $('#tb_departments').bootstrapTable('refresh');
+                            } else {
+                                layer.msg(data.Msg);
+                            }
+                        },
+                        error: function (xhr, a, b) { alert(xhr.responseText); }
+                    });
+                }, function () {
+                    //点错了
+                });
+            });
+            
             $("#btn_edit").click(function () {
                 var selRows = $('#tb_departments').bootstrapTable('getSelections');
                 if (selRows.length == 0) {

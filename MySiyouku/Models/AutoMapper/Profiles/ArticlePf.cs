@@ -22,6 +22,7 @@ namespace MySiyouku.Models.AutoMapper.Profiles
                 .ForMember(i=>i.Pviews, otp=>otp.Ignore())
                 .ForMember(i=>i.PublishTime, otp=>otp.Ignore())
                 .ForMember(i=>i.UserId, otp=>otp.Ignore())
+                .ForMember(i => i.IsShow, otp => otp.Ignore())
                 ;
             // Use CreateMap... Etc.. here (Profile methods are the same as configuration methods)
         }

@@ -55,6 +55,7 @@ namespace MySiyouku.Controllers
 
             ViewBag.users = x.First().UserName;
             var result = _articleRepository.GetArticles();
+            result = result.Where(i => i.IsShow);
             if (!string.IsNullOrWhiteSpace(search.KeyWord))
             {
                 result = result.Where(i => i.Title.Contains(search.KeyWord));
