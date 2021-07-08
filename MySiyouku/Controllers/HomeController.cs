@@ -153,7 +153,7 @@ namespace MySiyouku.Controllers
         public ActionResult GetCarousel(int page,int size)
         {
             ViewBag.curpage = page;
-            var x = _articleRepository.GetArticles().OrderByDescending(i => i.Pviews).Skip(size * (page-1)).Take(size).ToList();
+            var x = _articleRepository.GetArticles().OrderByDescending(i => Guid.NewGuid()).Skip(size * (page-1)).Take(size).ToList();
             return View(x);
         }
         public string DownLoadImg(string url)
