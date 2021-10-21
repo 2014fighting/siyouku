@@ -1,57 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
-您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
-来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+https://go.microsoft.com/fwlink/?LinkID=208121. 
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>ftp://qxw1590880317.my3w.com</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\workspace\myproject\siyouku\MySiyouku\bin\app.publish\</_PublishTargetUrl>
+    <History>False|2021-07-08T09:00:16.0409976Z;False|2021-07-08T16:51:57.7943007+08:00;False|2021-07-08T16:18:22.7159305+08:00;</History>
   </PropertyGroup>
   <ItemGroup>
-    <File Include="Areas/Manage/Controllers/ArticleController.cs">
-      <publishTime>11/24/2017 14:12:35</publishTime>
-    </File>
-    <File Include="Areas/Manage/Controllers/BaseController.cs">
-      <publishTime>10/13/2017 22:21:53</publishTime>
-    </File>
-    <File Include="Areas/Manage/Controllers/DailyEnglishController.cs">
-      <publishTime>10/13/2017 22:38:36</publishTime>
-    </File>
-    <File Include="Areas/Manage/Controllers/LinksController.cs">
-      <publishTime>12/24/2017 21:30:00</publishTime>
-    </File>
-    <File Include="Areas/Manage/Controllers/MyHomeController.cs">
-      <publishTime>09/09/2017 10:49:25</publishTime>
-    </File>
-    <File Include="Areas/Manage/Controllers/TagsController.cs">
-      <publishTime>10/15/2017 10:17:30</publishTime>
-    </File>
-    <File Include="Areas/Manage/ManageAreaRegistration.cs">
-      <publishTime>02/16/2017 16:04:07</publishTime>
-    </File>
-    <File Include="Areas/Manage/Models/ArticelJson.cs">
-      <publishTime>01/19/2017 16:48:42</publishTime>
-    </File>
-    <File Include="Areas/Manage/Models/ArticleDetail.cs">
-      <publishTime>09/15/2017 16:01:45</publishTime>
-    </File>
-    <File Include="Areas/Manage/Models/Common/CustomJsonResult.cs">
-      <publishTime>10/13/2017 22:36:13</publishTime>
-    </File>
-    <File Include="Areas/Manage/Models/JsonResult.cs">
-      <publishTime>06/15/2017 17:12:31</publishTime>
-    </File>
-    <File Include="Areas/Manage/Models/LinksDetail.cs">
-      <publishTime>11/24/2017 14:45:52</publishTime>
-    </File>
-    <File Include="Areas/Manage/Models/SelectsModel.cs">
-      <publishTime>09/15/2017 14:06:12</publishTime>
-    </File>
     <File Include="Areas/Manage/Views/Article/ArticleAdd.cshtml">
       <publishTime>07/08/2021 14:36:18</publishTime>
-    </File>
-    <File Include="Areas/Manage/Views/Article/ArticleDetail.cshtml">
-      <publishTime>01/19/2017 16:48:42</publishTime>
     </File>
     <File Include="Areas/Manage/Views/Article/ArticleEdit.cshtml">
       <publishTime>07/08/2021 14:36:18</publishTime>
@@ -150,10 +108,10 @@
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/MySiyouku.dll">
-      <publishTime>10/21/2021 15:00:10</publishTime>
+      <publishTime>07/08/2021 17:02:09</publishTime>
     </File>
     <File Include="bin/MySiyouku.pdb">
-      <publishTime>10/21/2021 15:00:10</publishTime>
+      <publishTime>07/08/2021 17:02:09</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>06/13/2016 23:06:14</publishTime>
@@ -210,10 +168,10 @@
       <publishTime>07/08/2021 16:59:56</publishTime>
     </File>
     <File Include="bin/Siyouku.Repositorys.dll">
-      <publishTime>10/21/2021 14:32:42</publishTime>
+      <publishTime>07/08/2021 16:59:57</publishTime>
     </File>
     <File Include="bin/Siyouku.Repositorys.pdb">
-      <publishTime>10/21/2021 14:32:42</publishTime>
+      <publishTime>07/08/2021 16:59:57</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>01/28/2015 04:02:42</publishTime>
@@ -1466,9 +1424,6 @@
     <File Include="Content/UEditor/lang/zh-cn/zh-cn.js">
       <publishTime>07/08/2021 14:36:18</publishTime>
     </File>
-    <File Include="Content/UEditor/net/Bin/Newtonsoft.Json.dll">
-      <publishTime>01/23/2017 15:44:26</publishTime>
-    </File>
     <File Include="Content/UEditor/net/config.json">
       <publishTime>07/08/2021 14:36:18</publishTime>
     </File>
@@ -1813,24 +1768,6 @@
     </File>
     <File Include="Content/UEditor/ueditor.parse.min.js">
       <publishTime>07/08/2021 14:36:18</publishTime>
-    </File>
-    <File Include="Controllers/HomeController.cs">
-      <publishTime>02/09/2017 18:03:14</publishTime>
-    </File>
-    <File Include="Controllers/WenqingController.cs">
-      <publishTime>05/13/2017 16:08:33</publishTime>
-    </File>
-    <File Include="fonts/glyphicons-halflings-regular.eot">
-      <publishTime>01/19/2017 16:49:11</publishTime>
-    </File>
-    <File Include="fonts/glyphicons-halflings-regular.svg">
-      <publishTime>01/19/2017 16:49:11</publishTime>
-    </File>
-    <File Include="fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>01/19/2017 16:49:11</publishTime>
-    </File>
-    <File Include="fonts/glyphicons-halflings-regular.woff">
-      <publishTime>01/19/2017 16:49:11</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>07/08/2021 14:36:19</publishTime>
@@ -2225,9 +2162,6 @@
     <File Include="Scripts/i18n/zh-TW.js">
       <publishTime>07/08/2021 14:36:19</publishTime>
     </File>
-    <File Include="Scripts/jquery-1.10.2.intellisense.js">
-      <publishTime>01/19/2017 16:49:11</publishTime>
-    </File>
     <File Include="Scripts/jquery-1.10.2.js">
       <publishTime>07/08/2021 14:36:19</publishTime>
     </File>
@@ -2261,9 +2195,6 @@
     <File Include="Scripts/select2.min.js">
       <publishTime>07/08/2021 14:36:19</publishTime>
     </File>
-    <File Include="ServerHub.cs">
-      <publishTime>01/19/2017 16:49:11</publishTime>
-    </File>
     <File Include="Views/APPlet/Index.cshtml">
       <publishTime>07/08/2021 14:36:19</publishTime>
     </File>
@@ -2271,7 +2202,7 @@
       <publishTime>07/08/2021 14:36:19</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
-      <publishTime>10/21/2021 14:39:27</publishTime>
+      <publishTime>07/08/2021 14:36:19</publishTime>
     </File>
     <File Include="Views/Home/Chat.cshtml">
       <publishTime>07/08/2021 14:36:19</publishTime>
@@ -2312,11 +2243,8 @@
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>07/08/2021 14:36:19</publishTime>
     </File>
-    <File Include="Views/Shared/ErrorPage.cshtml">
-      <publishTime>05/24/2017 10:50:48</publishTime>
-    </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>07/08/2021 17:23:31</publishTime>
+      <publishTime>07/08/2021 16:40:15</publishTime>
     </File>
     <File Include="Views/web.config">
       <publishTime>07/08/2021 14:36:19</publishTime>
@@ -2342,9 +2270,6 @@
     <File Include="Views/Wenqing/Kydemo.cshtml">
       <publishTime>07/08/2021 14:36:19</publishTime>
     </File>
-    <File Include="Views/Wenqing/Lianairiji.cshtml">
-      <publishTime>02/25/2017 11:19:25</publishTime>
-    </File>
     <File Include="Views/Wenqing/Missyou.cshtml">
       <publishTime>07/08/2021 14:36:19</publishTime>
     </File>
@@ -2353,9 +2278,6 @@
     </File>
     <File Include="Views/Wenqing/Nav.cshtml">
       <publishTime>07/08/2021 14:36:19</publishTime>
-    </File>
-    <File Include="Views/Wenqing/TagList.cshtml">
-      <publishTime>06/27/2017 09:57:27</publishTime>
     </File>
     <File Include="Views/Wenqing/WeTalk.cshtml">
       <publishTime>07/08/2021 14:36:19</publishTime>
@@ -2367,7 +2289,7 @@
       <publishTime>07/08/2021 14:36:19</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/21/2021 15:04:23</publishTime>
+      <publishTime>07/08/2021 17:02:09</publishTime>
     </File>
   </ItemGroup>
 </Project>
