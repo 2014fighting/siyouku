@@ -115,7 +115,8 @@
     }
 
 .navbar li:hover {
-    background-color: #ea4a4a;
+    background-color: #30a0f4;
+    cursor: pointer;
 }
 /*.article-title { font-weight:700;}*/
 .item-other feeds-item-text1 {
